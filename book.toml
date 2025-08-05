@@ -1,0 +1,8 @@
+[book]
+authors = ["Nathan McCarty"]
+language = "en"
+src = "src"
+title = "Idris 2 Tutorial"
+
+[output.html]
+preferred-dark-theme = "ayu"

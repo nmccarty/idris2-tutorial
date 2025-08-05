@@ -1,0 +1,115 @@
+#!/usr/bin/env raku
+
+use File::Temp;
+use Shell::Command;
+use paths;
+
+unit sub MAIN(Bool :$upload);
+
+my $tempdir = tempdir.IO;
+my $ttc-number = dir('build/ttc').first.basename;
+my $ttc = "build/ttc/$ttc-number".IO;
+
+# Filenames to ignore while processing source files
+# Use this list for files that aren't idris modules
+# TODO: Automatically detect when a file isn't an idris module
+my Str:D @ignored = [
+    "README.md",
+    "SUMMARY.md",
+];
+# Check to see if a filename is ignored
+sub not-ignored($path) {
+    for @ignored -> $ignored {
+        return False if $path.ends-with: $ignored;
+    }
+    return True;
+}
+
+# Copy a file from the current directory to the temporary directory, preserving
+# realtive path. Resolves symlinks in source, but does not reflect symlink
+# resoultion in the output path
+sub copy-to-dest($src) {
+   my $src-path = do given $src {
+       when Str {
+           $src.IO
+       }
+       when IO::Path {
+           $src
+       }
+       default {
+           die "Invalid source $src, {$src.WHAT}"
+       }
+   }
+   my $output-path = $tempdir.add($src-path.relative).IO;
+   # Create the parent directory if needed
+   if !$output-path.parent.d {
+       $output-path.parent.mkdir;
+
+   }
+   # Copy the file
+   $src-path.resolve.copy: $output-path;
+}
+
+# Copy our metadata files
+copy-to-dest "book.toml";
+copy-to-dest "src/SUMMARY.md";
+
+# Katla over the source files, just plain copying them if the ttm doesn't exist
+for paths("src", :file(*.&not-ignored)) -> $path {
+    my $ttc-path = $ttc.add($path.IO.relative: "src").extension: "ttm";
+    my $rel-path = $path.IO.relative;
+    if $ttc-path ~~ :e {
+        say "Running katla on ", $rel-path, " with ttc at ", $ttc-path.relative;
+        katla $path.IO.relative, $ttc-path.relative;
+    } else {
+        say "ttc not found for ", $rel-path, " copying verbaitm";
+        copy-to-dest $rel-path;
+    }
+}
+
+# Build the book
+
+indir $tempdir, {
+    my $mdbook = run <mdbook build>;
+    die "Ooops" unless $mdbook;
+}
+
+# Copy it over
+rm_rf "book";
+cp $tempdir.add("book"), "book", :r;
+
+# This function goes at the end because it breaks emacs fontification after it
+# for some bizzare reason.
+#
+# Invoke katla on a source file, streaming its output to the temporary directory
+sub katla($src, $ttc-src) {
+    # Run katla and collect the output
+    # TODO: Detect and handle katla errors
+    my $katla = run 'katla', 'markdown', $src, $ttc-src, :out;
+    my $output = $katla.out.slurp(:close);
+    # Post process them to set themeing correctly
+    # TODO: We need to remove the extra new line after the start of code blocks
+    # still
+    $output ~~ s:g/'<style>' .* '</style>'//;
+    $output ~~ s:g/'<br />'//;
+    $output ~~ s:g/'\\*'/*/;
+    $output ~~ s:g/'\\_'/_/;
+    $output ~~ s:g/'\\\\'/\\/;
+    $output ~~ s:g/'<code'/<pre><code/;
+    $output ~~ s:g/'</code>'/<\/code><\/pre>/;
+    $output ~~ s:g/'="IdrisKeyword"'/="hljs-keyword"/;
+    $output ~~ s:g/'="IdrisModule"'/="hljs-symbol hljs-emphasis"/;
+    $output ~~ s:g/'="IdrisComment"'/="hljs-comment"/;
+    $output ~~ s:g/'="IdrisFunction"'/="hljs-symbol"/;
+    $output ~~ s:g/'="IdrisBound"'/="hljs-name"/;
+    $output ~~ s:g/'="IdrisData"'/="hljs-title"/;
+    $output ~~ s:g/'="IdrisType"'/="hljs-type"/;
+    $output ~~ s:g/'="IdrisNamespace"'/="hljs-symbol hljs-emphasis"/;
+
+    # Spurt the output to the temporary directory
+    my $output-path = $tempdir.add: $src;
+    if !$output-path.parent.d {
+        $output-path.parent.mkdir;
+    }
+    $output-path.spurt($output);
+}
