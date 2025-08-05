@@ -1,39 +1,5 @@
-# Functional Programming in Idris 2
 
-[中文翻译](https://github.com/running-grass/idris2-tutorial-zh/blob/main/translation/README.md),
-[日本語訳](https://github.com/gemmaro/idris2-tutorial/blob/ja/translation/ja/README.md)
 
-The goal of this project is quickly explained: To become a more
-or less comprehensive guide to the Idris programming language,
-with a lot of introductory material targeted at newcomers to
-functional programming.
-
-The content will be organized in several parts, with the part
-about the core language features being the main guide to
-functional programming in Idris. Every part consists of several
-chapters, each trying to cover in depth a certain aspect
-of the Idris programming language and its core libraries. Most
-chapters come with (sometimes lots of) exercises, with
-solutions available in directory `src/Solutions`.
-
-Right now, even the part about core language features is not
-yet finished, but is being actively developed and tried on
-several of my own students, some of which are completely
-new to functional programming.
-
-## Table of Contents
-
-### Part 1: Core Language Features
-
-This part tries to give a solid introduction to the
-Idris programming language. If you are new to functional programming,
-make sure to follow these chapters in order and *solve all the
-exercises*.
-
-If you already used other pure functional programming languages like
-Haskell, you might go through the introductory material (Functions Part 1,
-Algebraic Data Types, and Interfaces) pretty quickly, as most of this
-stuff will already be familiar to you.
 
 1. [Introduction](src/Tutorial/Intro.md)
    1. [About the Idris Programming Language](src/Tutorial/Intro.md#about-the-idris-programming-language)
@@ -106,22 +72,9 @@ stuff will already be familiar to you.
 
 ### Part 2: Appendices
 
-The appendices can be used as references for the topics at
-hand. I plan to eventually have a concise reference on Idris
-syntax, typical error messages, the module system, interactive
-editing and possibly others.
 
 1. [Getting Started with pack and Idris2](src/Appendices/Install.md)
 2. [Interactive Editing in Neovim](src/Appendices/Neovim.md)
 3. [Structuring Idris Projects](src/Appendices/Projects.md)
 4. [A Deep Dive into Quantitative Type Theory](src/Appendices/QTT.md)
 
-## Prerequisites
-
-At the moment, this project is being actively developed and
-evolved against the main branch of the Idris 2 repository.
-It is being tested nightly on GitHub and built against
-the latest version of [pack's package collection](https://github.com/stefan-hoeck/idris2-pack-db).
-
-In order to follow along with this tutorial, it is strongly suggested to install
-Idris via the pack package manager as described [here](src/Appendices/Install.md).

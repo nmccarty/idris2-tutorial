@@ -1,6 +1,8 @@
 # Summary
 
-# Part 1: Core Language Features
+[Functional Programming in Idris 2](./Preface.md)
+
+# Core Language Features
 
 - [Introduction](./Tutorial/Intro.md)
 - [Functions Part 1](./Tutorial/Functions1.md)
@@ -17,7 +19,9 @@
 - [Predicates and Proof Search](./Tutorial/Predicates.md)
 - [Primitives](./Tutorial/Prim.md)
 
-# Part 2: Appendices
+---
+
+# Appendices
 
 - [Getting Started with pack and Idris 2](./Appendices/Install.md)
 - [Interactive Editing in Neovim](./Appendices/Neovim.md)

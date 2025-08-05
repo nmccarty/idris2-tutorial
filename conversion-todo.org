@@ -4,6 +4,10 @@
 * TODO Rewrite README
 ** TODO Link to SUMMARY.md
 ** TODO Document building mdbook
-** TODO Move some of the existing prose to a preface chapter
+** DONE Move some of the existing prose to a preface chapter
 * TODO Inject highlighted repl output
 * TODO Build docker container locally instead of using one from my personal forgejo
+* TODO Add links from github to mdbook and from mdbook to github
+This one's best done after migrating to the community project so we can have the correct url
+* TODO Rewrite prose to remove use of first person
+As this is becoming a community maintained tutorial, the prose should reflect the collective ownership and avoid the use of first person pronouns.
