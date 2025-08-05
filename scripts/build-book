@@ -53,7 +53,7 @@ copy-to-dest "book.toml";
 copy-to-dest "src/SUMMARY.md";
 
 # Katla over the source files, just plain copying them if the ttm doesn't exist
-for paths("src", :file(*.&not-ignored)) -> $path {
+for paths("src", :file(*.&not-ignored)).race(batch => 1) -> $path {
     my $ttc-path = $ttc.add($path.IO.relative: "src").extension: "ttm";
     my $rel-path = $path.IO.relative;
     if $ttc-path ~~ :e {
