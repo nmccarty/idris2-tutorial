@@ -1,80 +1,56 @@
+# Idris 2 Community Tutorial
 
+This project is an mdbook based off of Stefan Höck's [idris2-tutorial](https://github.com/stefan-hoeck/idris2-tutorial). At present, it's largely just a direct port, but will evolve as the community maintains it.
 
+This book is rendered automatically from the `main` branch with GitHub pages, which can be viewed at <https://nmccarty.github.io/idris2-tutorial/>. The [summary page](src/SUMMARY.md) can also be used as a table of contents for direct viewing in GitHub, though the rendered version is much preferable.
 
-1. [Introduction](src/Tutorial/Intro.md)
-   1. [About the Idris Programming Language](src/Tutorial/Intro.md#about-the-idris-programming-language)
-   2. [Using the REPL](src/Tutorial/Intro.md#using-the-repl)
-   3. [A First Idris Program](src/Tutorial/Intro.md#a-first-idris-program)
-   4. [The Shape of an Idris Definition](src/Tutorial/Intro.md#the-shape-of-an-idris-definition)
-   5. [Where to get Help](src/Tutorial/Intro.md#where-to-get-help)
-2. [Functions Part 1](src/Tutorial/Functions1.md)
-   1. [Functions with more than one Argument](src/Tutorial/Functions1.md#functions-with-more-that-one-argument)
-   2. [Function Composition](src/Tutorial/Functions1.md#function-composition)
-   3. [Higher-order Functions](src/Tutorial/Functions1.md#higher-order-functions)
-   4. [Currying](src/Tutorial/Functions1.md#currying)
-   5. [Anonymous Functions](src/Tutorial/Functions1.md#anonymous-functions)
-   6. [Operators](src/Tutorial/Functions1.md#operators)
-3. [Algebraic Data Types](src/Tutorial/DataTypes.md)
-   1. [Enumerations](src/Tutorial/DataTypes.md#enumerations)
-   2. [Sum Types](src/Tutorial/DataTypes.md#sum-types)
-   3. [Records](src/Tutorial/DataTypes.md#records)
-   4. [Generic Data Types](src/Tutorial/DataTypes.md#generic-data-types)
-   5. [Alternative Syntax for Data Definitions](src/Tutorial/DataTypes.md#alternative-syntax-for-data-definitions)
-4. [Interfaces](src/Tutorial/Interfaces.md)
-   1. [Interface Basics](src/Tutorial/Interfaces.md#interface-basics)
-   2. [More about Interfaces](src/Tutorial/Interfaces.md#more-about-interfaces)
-   3. [Interfaces in the Prelude](src/Tutorial/Interfaces.md#interfaces-in-the-prelude)
-5. [Functions Part 2](src/Tutorial/Functions2.md)
-   1. [Let Bindings and Local Definitions](src/Tutorial/Functions2.md#let-bindings-and-local-definitions)
-   2. [The Truth about Function Arguments](src/Tutorial/Functions2.md#the-truth-about-function-arguments)
-   3. [Programming with Holes](src/Tutorial/Functions2.md#programming-with-holes)
-6. [Dependent Types](src/Tutorial/Dependent.md)
-   1. [Length-Indexed Lists](src/Tutorial/Dependent.md#length-indexed-lists)
-   2. [Fin: Safe Indexing into Vectors](src/Tutorial/Dependent.md#fin-safe-indexing-into-vectors)
-   3. [Compile-Time Computations](src/Tutorial/Dependent.md#compile-time-computations)
-7. [IO: Programming with Side Effects](src/Tutorial/IO.md)
-   1. [Pure Side Effects?](src/Tutorial/IO.md#pure-side-effects)
-   2. [Do Blocks, Desugared](src/Tutorial/IO.md#do-blocks-desugared)
-   3. [Working with Files](src/Tutorial/IO.md#working-with-files)
-   4. [How IO is Implemented](src/Tutorial/IO.md#how-io-is-implemented)
-8. [Functor and Friends](src/Tutorial/Functor.md)
-   1. [Functor](src/Tutorial/Functor.md#functor)
-   2. [Applicative](src/Tutorial/Functor.md#applicative)
-   3. [Monad](src/Tutorial/Functor.md#monad)
-   4. [Background and further Reading](src/Tutorial/Functor.md#background-and-further-reading)
-9. [Recursion and Folds](src/Tutorial/Folds.md)
-   1. [Recursion](src/Tutorial/Folds.md#recursion)
-   2. [A few Notes on Totality Checking](src/Tutorial/Folds.md#a-few-notes-on-totality-checking)
-   3. [Interface Foldable](src/Tutorial/Folds.md#interface-foldable)
-10. [Effectful Traversals](src/Tutorial/Traverse.md)
-    1. [Reading CSV Tables](src/Tutorial/Traverse.md#reading-csv-tables)
-    2. [Programming with State](src/Tutorial/Traverse.md#programming-with-state)
-    3. [The Power of Composition](src/Tutorial/Traverse.md#the-power-of-composition)
-11. [Sigma Types](src/Tutorial/DPair.md)
-    1. [Dependent Pairs](src/Tutorial/DPair.md#dependent-pairs)
-    2. [Use Case: Nucleic Acids](src/Tutorial/DPair.md#use-case-nucleic-acids)
-    3. [Use Case: CSV Files with a Schema](src/Tutorial/DPair.md#use-case-csv-files-with-a-schema)
-12. [Propositional Equality](src/Tutorial/Eq.md)
-    1. [Equality as a Type](src/Tutorial/Eq.md#equality-as-a-type)
-    2. [Programs as Proofs](src/Tutorial/Eq.md#programs-as-proofs)
-    3. [Into the Void](src/Tutorial/Eq.md#into-the-void)
-    4. [Rewrite Rules](src/Tutorial/Eq.md#rewrite-rules)
-13. [Predicates and Proof Search](src/Tutorial/Predicates.md)
-    1. [Preconditions](src/Tutorial/Predicates.md#preconditions)
-    2. [Contracts between Values](src/Tutorial/Predicates.md#contracts-between-values)
-    3. [Use Case: Flexible Error Handling](src/Tutorial/Predicates.md#use-case-flexible-error-handling)
-    4. [The Truth about Interfaces](src/Tutorial/Predicates.md#the-truth-about-interfaces)
-14. [Primitives](src/Tutorial/Prim.md)
-    1. [How Primitives are Implemented](src/Tutorial/Prim.md#how-primitives-are-implemented)
-    2. [Working with Strings](src/Tutorial/Prim.md#working-with-strings)
-    3. [Integers](src/Tutorial/Prim.md#integers)
-    4. [Refined Primitives](src/Tutorial/Prim.md#refined-primitives)
+TODO: Change above link when we migrate to idris-community organization
 
-### Part 2: Appendices
+## Dependencies and Building
 
+Building this mdbook is slightly complicated, as highlight.js has no support for idris, we are using [katla](https://github.com/idris-community/katla) to perform the highlighting, and injecting that highlighting into the Markdown before mdbook has a chance to see it using the [build-book](scripts/build-book) Raku script.
 
-1. [Getting Started with pack and Idris2](src/Appendices/Install.md)
-2. [Interactive Editing in Neovim](src/Appendices/Neovim.md)
-3. [Structuring Idris Projects](src/Appendices/Projects.md)
-4. [A Deep Dive into Quantitative Type Theory](src/Appendices/QTT.md)
+### Idris Dependencies
 
+This project requires [pack](https://github.com/stefan-hoeck/idris2-pack) and [katla](https://github.com/idris-community/katla) to build.
+
+After either installing pack from your distro's package manager or following the [quick installation](https://github.com/stefan-hoeck/idris2-pack?tab=readme-ov-file#quick-installation) directions in pack's readme, you can install katla with:
+
+```sh
+pack install-app katla
+```
+
+### Raku Dependencies
+
+This project requires [Raku](https://rakudo.org/) and the `File::Temp`, `Shell::Command`, and `paths` modules to build.
+
+I recommend installing raku and [zef](https://github.com/ugexe/zef) through your distro's package manger. If your package manger has lacks either zef or raku, installation through [rakubrew](https://rakubrew.org/) is an option, and if your package manager has raku but lacks zef, zef can be quite easily [installed from source](https://github.com/ugexe/zef?tab=readme-ov-file#installation).
+
+Once you have zef up and running, the dependencies for this project can be installed with:
+
+```sh
+zef install File::Temp Shell::Command paths
+```
+
+### mdbook
+
+Many distros have mdbook in their package manager, this is the recommended way to install it. If your distro lacks mdbook, or if the version it packages proves to be too old to build this project, after setting up a Rust toolchain with [rustup](https://rustup.rs/), you can install mdbook from source with:
+
+``` sh
+cargo install mdbook
+```
+
+### Building
+
+Once you have all the dependencies in place, simply run:
+
+> [!IMPORTANT]
+> The `build-book` script assumes that the Idris code in the project has already been built, and will not function properly if the Idris build directory is not populated, as the build files are required by katla to provide syntax highlighting.
+>
+>Run `pack build` after a clean checkout or making any changes to Idris files to ensure that the build directory is up to date before running the `build-book` script.
+
+``` sh
+./scripts/build-book
+```
+
+from this project's root directory, and the rendered book will be available in the `book` directory. I recommend using a simple static file server such as `python -m http.server`to view the rendered book in your browser, simply opening the files directly in your browser is unlikely to work.

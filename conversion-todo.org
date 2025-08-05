@@ -1,10 +1,10 @@
 * DONE Get CI up and running
 * DONE Fix that whole extra line breaks bug
-* TODO Break Chapters into sub-chapters as appropriate
-* TODO Rewrite README
-** TODO Link to SUMMARY.md
-** TODO Document building mdbook
+* DONE Rewrite README
+** DONE Link to SUMMARY.md
+** DONE Document building mdbook
 ** DONE Move some of the existing prose to a preface chapter
+* TODO Break Chapters into sub-chapters as appropriate
 * TODO Inject highlighted repl output
 * TODO Build docker container locally instead of using one from my personal forgejo
 * TODO Add links from github to mdbook and from mdbook to github

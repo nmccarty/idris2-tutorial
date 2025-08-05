@@ -1,5 +1,5 @@
 [book]
-authors = ["Nathan McCarty"]
+authors = ["Stefan Höck", "Nathan McCarty"]
 language = "en"
 src = "src"
 title = "Idris 2 Tutorial"
