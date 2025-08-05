@@ -5,6 +5,12 @@
 # Core Language Features
 
 - [Introduction](./Tutorial/Intro.md)
+  - [About The Idris Programming Language](./Tutorial/Intro/AboutTheLanguage.md)
+  - [Using the REPL](./Tutorial/Intro/UsingTheRepl.md)
+  - [A First Idris Program](./Tutorial/Intro/FirstIdrisProgram.md)
+  - [The Shape of an Idris Definition](./Tutorial/Intro/ShapeOfADef.md)
+  - [Where to Get Help](./Tutorial/Intro/WhereToGetHelp.md)
+  - [Summary](./Tutorial/Intro/Summary.md)
 - [Functions Part 1](./Tutorial/Functions1.md)
 - [Algebraic Data Types](./Tutorial/DataTypes.md)
 - [Interfaces](./Tutorial/Interfaces.md)

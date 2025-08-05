@@ -40,6 +40,8 @@ modules = Appendices.Neovim
         , Tutorial.IO
         , Tutorial.Interfaces
         , Tutorial.Intro
+        , Tutorial.Intro.FirstIdrisProgram
+        , Tutorial.Intro.ShapeOfADef
         , Tutorial.Predicates
         , Tutorial.Prim
         , Tutorial.Traverse
