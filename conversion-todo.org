@@ -11,3 +11,5 @@
 This one's best done after migrating to the community project so we can have the correct url
 * TODO Rewrite prose to remove use of first person
 As this is becoming a community maintained tutorial, the prose should reflect the collective ownership and avoid the use of first person pronouns.
+* TODO Selenized custom themes
+Because I love myself
