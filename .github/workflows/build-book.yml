@@ -1,0 +1,43 @@
+name: Publish Book
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build Book
+    runs-on: ubuntu-latest
+    container:
+      image: git.stranger.systems/thatonelutenist/advent:latest
+      options: --user root
+    env:
+      PACK_DIR: /root/.pack
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Build
+        run: |
+          pack build
+          ./scripts/build-book
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: book/
+  deploy:
+    name: Deploy Pages
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    # Deploy to the github-pages environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    # Specify runner + deployment step
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

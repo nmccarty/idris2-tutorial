@@ -1,4 +1,4 @@
-* TODO Get CI up and running
+* DONE Get CI up and running
 * TODO Fix that whole extra line breaks bug
 * TODO Break Chapters into sub-chapters as appropriate
 * TODO Rewrite README
@@ -6,3 +6,4 @@
 ** TODO Document building mdbook
 ** TODO Move some of the existing prose to a preface chapter
 * TODO Inject highlighted repl output
+* TODO Build docker container locally instead of using one from my personal forgejo

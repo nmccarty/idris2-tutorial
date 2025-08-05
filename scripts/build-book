@@ -11,8 +11,6 @@ my $ttc-number = dir('build/ttc').first.basename;
 my $ttc = "build/ttc/$ttc-number".IO;
 
 # Filenames to ignore while processing source files
-# Use this list for files that aren't idris modules
-# TODO: Automatically detect when a file isn't an idris module
 my Str:D @ignored = [
     "README.md",
     "SUMMARY.md",
