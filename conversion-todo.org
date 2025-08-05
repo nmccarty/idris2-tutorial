@@ -1,5 +1,5 @@
 * DONE Get CI up and running
-* TODO Fix that whole extra line breaks bug
+* DONE Fix that whole extra line breaks bug
 * TODO Break Chapters into sub-chapters as appropriate
 * TODO Rewrite README
 ** TODO Link to SUMMARY.md
