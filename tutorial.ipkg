@@ -35,6 +35,13 @@ modules = Appendices.Neovim
         , Tutorial.Eq
         , Tutorial.Folds
         , Tutorial.Functions1
+        , Tutorial.Functions1.FunctionsWithMultipleArguments
+        , Tutorial.Functions1.FunctionComposition
+        , Tutorial.Functions1.HigherOrder
+        , Tutorial.Functions1.Currying
+        , Tutorial.Functions1.Operators
+        , Tutorial.Functions1.Exercises
+        , Tutorial.Functions1.Lambdas
         , Tutorial.Functions2
         , Tutorial.Functor
         , Tutorial.IO

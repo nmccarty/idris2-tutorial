@@ -13,3 +13,7 @@ This one's best done after migrating to the community project so we can have the
 As this is becoming a community maintained tutorial, the prose should reflect the collective ownership and avoid the use of first person pronouns.
 * TODO Selenized custom themes
 Because I love myself
+* TODO Audit links
+* TODO Figure out excercise soultions situation
+* TODO Clean up fixity declarations
+* TODO Consistent on summary vs conclusion
