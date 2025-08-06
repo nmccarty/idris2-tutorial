@@ -30,6 +30,13 @@ modules = Appendices.Neovim
         , Text.CSV
 
         , Tutorial.DataTypes
+        , Tutorial.DataTypes.Enumerations
+        , Tutorial.DataTypes.Exercises1
+        , Tutorial.DataTypes.SumTypes
+        , Tutorial.DataTypes.Exercises2
+        , Tutorial.DataTypes.Records
+        , Tutorial.DataTypes.GenericDataTypes
+        , Tutorial.DataTypes.AltSyntax
         , Tutorial.Dependent
         , Tutorial.DPair
         , Tutorial.Eq
