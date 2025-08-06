@@ -10,7 +10,7 @@ jobs:
     name: Build Book
     runs-on: ubuntu-latest
     container:
-      image: git.stranger.systems/thatonelutenist/advent:latest
+      image: ghcr.io/${{ github.repository }}:latest
       options: --user root
     env:
       PACK_DIR: /root/.pack
