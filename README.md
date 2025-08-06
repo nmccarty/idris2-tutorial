@@ -2,9 +2,7 @@
 
 This project is an mdbook based off of Stefan Höck's [idris2-tutorial](https://github.com/stefan-hoeck/idris2-tutorial). At present, it's largely just a direct port, but will evolve as the community maintains it.
 
-This book is rendered automatically from the `main` branch with GitHub pages, which can be viewed at <https://nmccarty.github.io/idris2-tutorial/>. The [summary page](src/SUMMARY.md) can also be used as a table of contents for direct viewing in GitHub, though the rendered version is much preferable.
-
-TODO: Change above link when we migrate to idris-community organization
+This book is rendered automatically from the `main` branch with GitHub pages, which can be viewed at <https://idris-community.github.io/idris2-tutorial/>. The [summary page](src/SUMMARY.md) can also be used as a table of contents for direct viewing in GitHub, though the rendered version is much preferable.
 
 ## Dependencies and Building
 
