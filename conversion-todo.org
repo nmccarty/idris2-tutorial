@@ -4,8 +4,25 @@
 ** DONE Link to SUMMARY.md
 ** DONE Document building mdbook
 ** DONE Move some of the existing prose to a preface chapter
-* TODO Break Chapters into sub-chapters as appropriate
+* STRT Break Chapters into sub-chapters as appropriate
 * TODO Inject highlighted repl output
+** TODO Actual test injection
+Thread local IDEMode?
+** TODO Golden Tests
+Should golden test the repl outputs to detect breakage
+
+These should also be compared in a whitespace insensitive way, im thinking, like:
+#+begin_src markdown
+```repl-session
+> length ["lines that start with > are repl commands"]
+1
+> length ["subsequent lines before the next", "are the golden output"]
+2
+```
+#+end_src
+
+This keeps it readable as a raw markdown document, but provides easy processing for extraction and injection of the /actual/ repl output complete with highlighting.
+** TODO Special Handling for exec
 * TODO Build docker container locally instead of using one from my personal forgejo
 * TODO Add links from github to mdbook and from mdbook to github
 This one's best done after migrating to the community project so we can have the correct url
@@ -17,3 +34,6 @@ Because I love myself
 * TODO Figure out excercise soultions situation
 * TODO Clean up fixity declarations
 * TODO Consistent on summary vs conclusion
+* TODO Place modules and visibility primer upfront
+* IDEA Rename Modules To Chapter/Subchapter number?
+Could also potentially insert automatic linking?
