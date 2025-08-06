@@ -5,6 +5,8 @@
 ** DONE Document building mdbook
 ** DONE Move some of the existing prose to a preface chapter
 * DONE Build docker container locally instead of using one from my personal forgejo
+* DONE Add links from github to mdbook and from mdbook to github
+This one's best done after migrating to the community project so we can have the correct url
 * STRT Break Chapters into sub-chapters as appropriate
 * TODO Inject highlighted repl output
 ** TODO Actual test injection
@@ -24,8 +26,6 @@ These should also be compared in a whitespace insensitive way, im thinking, like
 
 This keeps it readable as a raw markdown document, but provides easy processing for extraction and injection of the /actual/ repl output complete with highlighting.
 ** TODO Special Handling for exec
-* TODO Add links from github to mdbook and from mdbook to github
-This one's best done after migrating to the community project so we can have the correct url
 * TODO Rewrite prose to remove use of first person
 As this is becoming a community maintained tutorial, the prose should reflect the collective ownership and avoid the use of first person pronouns.
 * TODO Selenized custom themes
