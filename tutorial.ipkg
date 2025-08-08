@@ -90,6 +90,10 @@ modules = Appendices.Neovim
         , Solutions.DPair
         -- Chapter 12: Propositional Equality
         , Tutorial.Eq
+        , Tutorial.Eq.Eq
+        , Tutorial.Eq.ProgramsAsProofs
+        , Tutorial.Eq.Void
+        , Tutorial.Eq.Rewrite
         , Solutions.Eq
         -- Chapter 13: Predicates and Proof Search
         , Tutorial.Predicates
