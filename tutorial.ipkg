@@ -13,37 +13,13 @@ modules = Appendices.Neovim
         , Data.Union
         , Data.Validated
 
-        , Solutions.DataTypes
-        , Solutions.Dependent
-        , Solutions.DPair
-        , Solutions.Eq
-        , Solutions.Folds
-        , Solutions.Functions1
-        , Solutions.Functions2
-        , Solutions.Functor
-        , Solutions.IO
-        , Solutions.Interfaces
-        , Solutions.Predicates
-        , Solutions.Prim
-        , Solutions.Traverse
-
         , Text.CSV
 
-        , Tutorial.DataTypes
-        , Tutorial.DataTypes.Enumerations
-        , Tutorial.DataTypes.Exercises1
-        , Tutorial.DataTypes.SumTypes
-        , Tutorial.DataTypes.Exercises2
-        , Tutorial.DataTypes.Records
-        , Tutorial.DataTypes.GenericDataTypes
-        , Tutorial.DataTypes.AltSyntax
-        , Tutorial.Dependent
-        , Tutorial.Dependent.LengthIndexedLists
-        , Tutorial.Dependent.Fin
-        , Tutorial.Dependent.Comptime
-        , Tutorial.DPair
-        , Tutorial.Eq
-        , Tutorial.Folds
+        -- Chapter 1: Introduction
+        , Tutorial.Intro
+        , Tutorial.Intro.FirstIdrisProgram
+        , Tutorial.Intro.ShapeOfADef
+        -- Chapter 2: Functions Part 1
         , Tutorial.Functions1
         , Tutorial.Functions1.FunctionsWithMultipleArguments
         , Tutorial.Functions1.FunctionComposition
@@ -52,19 +28,56 @@ modules = Appendices.Neovim
         , Tutorial.Functions1.Operators
         , Tutorial.Functions1.Exercises
         , Tutorial.Functions1.Lambdas
-        , Tutorial.Functions2
-        , Tutorial.Functions2.LetBindings
-        , Tutorial.Functions2.TheTruth
-        , Tutorial.Functions2.Holes
-        , Tutorial.Functor
-        , Tutorial.IO
+        , Solutions.Functions1
+        -- Chapter 3: Algebraic Data Types
+        , Tutorial.DataTypes
+        , Tutorial.DataTypes.Enumerations
+        , Tutorial.DataTypes.Exercises1
+        , Tutorial.DataTypes.SumTypes
+        , Tutorial.DataTypes.Exercises2
+        , Tutorial.DataTypes.Records
+        , Tutorial.DataTypes.GenericDataTypes
+        , Tutorial.DataTypes.AltSyntax
+        , Solutions.DataTypes
+        -- Chapter 4: Interfaces
         , Tutorial.Interfaces
         , Tutorial.Interfaces.Basics
         , Tutorial.Interfaces.More
         , Tutorial.Interfaces.Prelude
-        , Tutorial.Intro
-        , Tutorial.Intro.FirstIdrisProgram
-        , Tutorial.Intro.ShapeOfADef
-        , Tutorial.Predicates
-        , Tutorial.Prim
+        , Solutions.Interfaces
+        -- Chapter 5: Functions Part 2
+        , Tutorial.Functions2
+        , Tutorial.Functions2.LetBindings
+        , Tutorial.Functions2.TheTruth
+        , Tutorial.Functions2.Holes
+        , Solutions.Functions2
+        -- Chapter 6: Dependent Types
+        , Tutorial.Dependent
+        , Tutorial.Dependent.LengthIndexedLists
+        , Tutorial.Dependent.Fin
+        , Tutorial.Dependent.Comptime
+        , Solutions.Dependent
+        -- Chapter 7: IO: Programming With Side Effects
+        , Tutorial.IO
+        , Solutions.IO
+        -- Chapter 8: Functor and Friends
+        , Tutorial.Functor
+        , Solutions.Functor
+        -- Chapter 9: Recursion and Folds
+        , Tutorial.Folds
+        , Solutions.Folds
+        -- Chapter 10: Effectful Traversals
         , Tutorial.Traverse
+        , Solutions.Traverse
+        -- Chapter 11: Sigma Types
+        , Tutorial.DPair
+        , Solutions.DPair
+        -- Chapter 12: Propositional Equality
+        , Tutorial.Eq
+        , Solutions.Eq
+        -- Chapter 13: Predicates and Proof Search
+        , Tutorial.Predicates
+        , Solutions.Predicates
+        -- Chapter 14: Primitives
+        , Tutorial.Prim
+        , Solutions.Prim

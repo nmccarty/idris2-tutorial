@@ -4,6 +4,10 @@ This project is an mdbook based off of Stefan Höck's [idris2-tutorial](https://
 
 This book is rendered automatically from the `main` branch with GitHub pages, which can be viewed at <https://idris-community.github.io/idris2-tutorial/>. The [summary page](src/SUMMARY.md) can also be used as a table of contents for direct viewing in GitHub, though the rendered version is much preferable.
 
+## Contributing
+
+Please see [`CONTRIBUTING.md`](CONTRIBUTING.md) for style and formatting guidance before submitting a PR.
+
 ## Dependencies and Building
 
 Building this mdbook is slightly complicated, as highlight.js has no support for idris, we are using [katla](https://github.com/idris-community/katla) to perform the highlighting, and injecting that highlighting into the Markdown before mdbook has a chance to see it using the [build-book](scripts/build-book) Raku script.
