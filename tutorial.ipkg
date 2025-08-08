@@ -50,6 +50,9 @@ modules = Appendices.Neovim
         , Tutorial.Functions1.Exercises
         , Tutorial.Functions1.Lambdas
         , Tutorial.Functions2
+        , Tutorial.Functions2.LetBindings
+        , Tutorial.Functions2.TheTruth
+        , Tutorial.Functions2.Holes
         , Tutorial.Functor
         , Tutorial.IO
         , Tutorial.Interfaces
