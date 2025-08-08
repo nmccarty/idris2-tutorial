@@ -72,6 +72,9 @@ modules = Appendices.Neovim
         , Solutions.Functor
         -- Chapter 9: Recursion and Folds
         , Tutorial.Folds
+        , Tutorial.Folds.Recursion
+        , Tutorial.Folds.Totality
+        , Tutorial.Folds.Foldable
         , Solutions.Folds
         -- Chapter 10: Effectful Traversals
         , Tutorial.Traverse
