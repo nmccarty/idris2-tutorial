@@ -84,6 +84,9 @@ modules = Appendices.Neovim
         , Solutions.Traverse
         -- Chapter 11: Sigma Types
         , Tutorial.DPair
+        , Tutorial.DPair.DPair
+        , Tutorial.DPair.DNA
+        , Tutorial.DPair.CSV
         , Solutions.DPair
         -- Chapter 12: Propositional Equality
         , Tutorial.Eq
