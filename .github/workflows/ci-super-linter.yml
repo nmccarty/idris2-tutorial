@@ -1,3 +1,4 @@
+---
 name: Lint
 
 on:
@@ -31,6 +32,7 @@ jobs:
           IGNORE_GENERATED_FILES: true
           FILTER_REGEX_EXCLUDE: '.*SUMMARY.md'
           VALIDATE_DOCKERFILE_HADOLINT: false
+          MARKDOWN_CONFIG_FILE: '.markdownlint.json'
   mdformat:
     name: Markdown Formatting
     runs-on: ubuntu-latest
@@ -44,4 +46,4 @@ jobs:
       - name: Mdformat
         run: |
           pip install mdformat
-          mdformat --check --wrap no --number **/*.md
+          mdformat --check --wrap no --number ./**/*.md
