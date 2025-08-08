@@ -32,6 +32,7 @@ As this is becoming a community maintained tutorial, the prose should reflect th
 * TODO Selenized custom themes
 Because I love myself
 * TODO Audit links
+* TODO Cleanup Imports and Exports
 * TODO Figure out excercise soultions situation
 * TODO Clean up fixity declarations
 * TODO Consistent on summary vs conclusion

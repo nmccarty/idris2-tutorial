@@ -59,6 +59,10 @@ modules = Appendices.Neovim
         , Solutions.Dependent
         -- Chapter 7: IO: Programming With Side Effects
         , Tutorial.IO
+        , Tutorial.IO.PureSideEffects
+        , Tutorial.IO.DoUnsugared
+        , Tutorial.IO.Files
+        , Tutorial.IO.Impl
         , Solutions.IO
         -- Chapter 8: Functor and Friends
         , Tutorial.Functor
