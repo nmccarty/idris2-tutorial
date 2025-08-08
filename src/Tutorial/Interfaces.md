@@ -1,11 +1,6 @@
 # Interfaces
 
-Function overloading - the definition of functions
-with the same name but different implementations - is a concept
-found in many programming languages. Idris natively supports overloading
-of functions: Two functions with the same name can be defined in
-different modules or namespaces, and Idris will try to disambiguate
-between these based on the types involved. Here is an example:
+Function overloading - the definition of functions with the same name but different implementations - is a concept found in many programming languages. Idris natively supports overloading of functions: Two functions with the same name can be defined in different modules or namespaces, and Idris will try to disambiguate between these based on the types involved. Here is an example:
 
 ```idris
 module Tutorial.Interfaces
@@ -29,9 +24,7 @@ namespace List
   size = cast . length
 ```
 
-Here, we defined three different functions
-called `size`, each in its own namespace. We can disambiguate between
-these by prefixing them with their namespace:
+Here, we defined three different functions called `size`, each in its own namespace. We can disambiguate between these by prefixing them with their namespace:
 
 ```repl
 Tutorial.Interfaces> :t Bool.size
@@ -45,9 +38,7 @@ mean : List Integer -> Integer
 mean xs = sum xs `div` size xs
 ```
 
-As you can see, Idris can disambiguate between the different
-`size` functions, since `xs` is of type `List Integer`, which
-unifies only with `List a`, the argument type of `List.size`.
+As you can see, Idris can disambiguate between the different `size` functions, since `xs` is of type `List Integer`, which unifies only with `List a`, the argument type of `List.size`.
 
 <!-- vi: filetype=idris2:syntax=markdown
 -->

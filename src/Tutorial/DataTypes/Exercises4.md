@@ -1,13 +1,8 @@
 # Exercises part 4
 
-If this is your first time programming in a purely functional language, the
-exercises below are *very* important. Do not skip any of them! Take your time
-and work through them all. In most cases, the types should be enough to explain
-what's going on, even though they might appear cryptic in the beginning.
-Otherwise, have a look at the comments (if any) of each exercise.
+If this is your first time programming in a purely functional language, the exercises below are *very* important. Do not skip any of them! Take your time and work through them all. In most cases, the types should be enough to explain what's going on, even though they might appear cryptic in the beginning. Otherwise, have a look at the comments (if any) of each exercise.
 
-Remember, that lower-case identifiers in a function signature are treated as
-type parameters.
+Remember, that lower-case identifiers in a function signature are treated as type parameters.
 
 1. Implement the following generic functions for `Maybe`:
 
@@ -119,8 +114,7 @@ type parameters.
    foldList : (acc -> el -> acc) -> acc -> List el -> acc
    ```
 
-4. Assume we store user data for our web application in
-   the following record:
+4. Assume we store user data for our web application in the following record:
 
    ```idris
    record Client where
@@ -131,16 +125,11 @@ type parameters.
      passwordOrKey : Either Bits64 String
    ```
 
-   Using `LoginError` from an earlier exercise, implement function `login`,
-   which, given a list of `Client`s plus a value of type `Credentials` will
-   return either a `LoginError` in case no valid credentials where provided, or
-   the first `Client` for whom the credentials match.
+   Using `LoginError` from an earlier exercise, implement function `login`, which, given a list of `Client`s plus a value of type `Credentials` will return either a `LoginError` in case no valid credentials where provided, or the first `Client` for whom the credentials match.
 
-5. Using your data type for chemical elements from an earlier exercise,
-   implement a function for calculating the molar mass of a molecular formula.
+5. Using your data type for chemical elements from an earlier exercise, implement a function for calculating the molar mass of a molecular formula.
 
-   Use a list of elements each paired with its count (a natural number) for
-   representing formulae. For instance:
+   Use a list of elements each paired with its count (a natural number) for representing formulae. For instance:
 
    ```idris
    ethanol : List (Element,Nat)

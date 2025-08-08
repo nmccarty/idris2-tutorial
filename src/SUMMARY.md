@@ -50,7 +50,7 @@
 - [Predicates and Proof Search](./Tutorial/Predicates.md)
 - [Primitives](./Tutorial/Prim.md)
 
----
+______________________________________________________________________
 
 # Appendices
 
