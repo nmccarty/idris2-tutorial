@@ -66,6 +66,9 @@ modules = Appendices.Neovim
         , Solutions.IO
         -- Chapter 8: Functor and Friends
         , Tutorial.Functor
+        , Tutorial.Functor.Functor
+        , Tutorial.Functor.Applicative
+        , Tutorial.Functor.Monad
         , Solutions.Functor
         -- Chapter 9: Recursion and Folds
         , Tutorial.Folds
