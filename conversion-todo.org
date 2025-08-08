@@ -35,5 +35,8 @@ Because I love myself
 * TODO Clean up fixity declarations
 * TODO Consistent on summary vs conclusion
 * TODO Place modules and visibility primer upfront
+* TODO Configure mdformat
+* TODO Organize ipkg modules in chapter order
+* IDEA Number at front of subchapter names to enforce ordering when viewing in github?
 * IDEA Rename Modules To Chapter/Subchapter number?
 Could also potentially insert automatic linking?

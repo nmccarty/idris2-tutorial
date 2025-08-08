@@ -53,6 +53,9 @@ modules = Appendices.Neovim
         , Tutorial.Functor
         , Tutorial.IO
         , Tutorial.Interfaces
+        , Tutorial.Interfaces.Basics
+        , Tutorial.Interfaces.More
+        , Tutorial.Interfaces.Prelude
         , Tutorial.Intro
         , Tutorial.Intro.FirstIdrisProgram
         , Tutorial.Intro.ShapeOfADef
