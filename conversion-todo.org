@@ -39,5 +39,7 @@ Because I love myself
 * TODO Place modules and visibility primer upfront
 * TODO Configure mdformat
 * IDEA Number at front of subchapter names to enforce ordering when viewing in github?
+* IDEA Standard library types
+When a subchapter reimplements a standard library type, we should maybe call this out and use the standard library type in future subchapters to decrease cross dependencies
 * IDEA Rename Modules To Chapter/Subchapter number?
 Could also potentially insert automatic linking?

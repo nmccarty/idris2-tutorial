@@ -78,6 +78,9 @@ modules = Appendices.Neovim
         , Solutions.Folds
         -- Chapter 10: Effectful Traversals
         , Tutorial.Traverse
+        , Tutorial.Traverse.CSV
+        , Tutorial.Traverse.State
+        , Tutorial.Traverse.Composition
         , Solutions.Traverse
         -- Chapter 11: Sigma Types
         , Tutorial.DPair
