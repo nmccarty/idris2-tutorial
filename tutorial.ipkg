@@ -38,6 +38,9 @@ modules = Appendices.Neovim
         , Tutorial.DataTypes.GenericDataTypes
         , Tutorial.DataTypes.AltSyntax
         , Tutorial.Dependent
+        , Tutorial.Dependent.LengthIndexedLists
+        , Tutorial.Dependent.Fin
+        , Tutorial.Dependent.Comptime
         , Tutorial.DPair
         , Tutorial.Eq
         , Tutorial.Folds
