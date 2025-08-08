@@ -34,7 +34,7 @@ zef install File::Temp Shell::Command paths
 
 Many distros have mdbook in their package manager, this is the recommended way to install it. If your distro lacks mdbook, or if the version it packages proves to be too old to build this project, after setting up a Rust toolchain with [rustup](https://rustup.rs/), you can install mdbook from source with:
 
-``` sh
+```sh
 cargo install mdbook
 ```
 
@@ -45,10 +45,20 @@ Once you have all the dependencies in place, simply run:
 > [!IMPORTANT]
 > The `build-book` script assumes that the Idris code in the project has already been built, and will not function properly if the Idris build directory is not populated, as the build files are required by katla to provide syntax highlighting.
 >
->Run `pack build` after a clean checkout or making any changes to Idris files to ensure that the build directory is up to date before running the `build-book` script.
+> Run `pack build` after a clean checkout or making any changes to Idris files to ensure that the build directory is up to date before running the `build-book` script.
 
-``` sh
+```sh
 ./scripts/build-book
 ```
 
 from this project's root directory, and the rendered book will be available in the `book` directory. I recommend using a simple static file server such as `python -m http.server`to view the rendered book in your browser, simply opening the files directly in your browser is unlikely to work.
+
+### Formatting
+
+This project uses [mdformat](https://github.com/hukkin/mdformat) to ensure consistency in Markdown formatting. While this is not strictly necessary to have locally, it is linted against in CI.
+
+The mdformat configuration used in CI can be replicated by running the following commmand from the base directory of the project:
+
+```sh
+mdformat --wrap=no --number **/*.md
+```
