@@ -4,5 +4,8 @@ language = "en"
 src = "src"
 title = "Idris 2 Tutorial"
 
+[build]
+create-missing = false
+
 [output.html]
 preferred-dark-theme = "ayu"

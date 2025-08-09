@@ -11,6 +11,8 @@ This one's best done after migrating to the community project so we can have the
 * DONE Break Chapters into sub-chapters as appropriate
 * DONE Configure mdformat
 * DONE Audit links
+* DONE Figure out exercise solutions situation
+Will probably want to either convert the solutions files to markdown with katla or manually, and add them in a an appendex. Will need to go back and insert links/references.
 * TODO Inject highlighted repl output
 ** TODO Actual test injection
 Thread local IDEMode?
@@ -34,13 +36,13 @@ As this is becoming a community maintained tutorial, the prose should reflect th
 * TODO Selenized custom themes
 Because I love myself
 * TODO Cleanup Imports and Exports
-* TODO Figure out excercise soultions situation
-Will probably want to either conver the solutions files to markdown with katla or manually, and add them in a an appendex. Will need to go back and insert links/references.
 * TODO Clean up fixity declarations
 * TODO Consistent on summary vs conclusion
 * TODO Place modules and visibility primer upfront
 * TODO Cleanup references to outdated sources
 Like the wiki library page
+* TODO Clean up exercise titling
+Make sure section names match up with headers in solutions
 * IDEA Number at front of subchapter names to enforce ordering when viewing in github?
 * IDEA Standard library types
 When a subchapter reimplements a standard library type, we should maybe call this out and use the standard library type in future subchapters to decrease cross dependencies
