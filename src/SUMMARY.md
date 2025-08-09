@@ -106,6 +106,14 @@
   - [Exercises](./Tutorial/Eq/Exercises4.md)
   - [Conclusion](./Tutorial/Eq/Conclusion.md)
 - [Predicates and Proof Search](./Tutorial/Predicates.md)
+  - [Preconditions](./Tutorial/Predicates/Preconditions.md)
+  - [Exercises](./Tutorial/Predicates/Exercises1.md)
+  - [Contracts between Values](./Tutorial/Predicates/Contracts.md)
+  - [Exercises](./Tutorial/Predicates/Exercises2.md)
+  - [Use Case: Flexible Error Handling](./Tutorial/Predicates/ErrorHandling.md)
+  - [Exercises](./Tutorial/Predicates/Exercises3.md)
+  - [The Truth about Interfaces](./Tutorial/Predicates/Truth.md)
+  - [Conclusion](./Tutorial/Predicates/Conclusion.md)
 - [Primitives](./Tutorial/Prim.md)
 
 ______________________________________________________________________

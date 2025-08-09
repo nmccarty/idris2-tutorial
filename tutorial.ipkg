@@ -97,6 +97,10 @@ modules = Appendices.Neovim
         , Solutions.Eq
         -- Chapter 13: Predicates and Proof Search
         , Tutorial.Predicates
+        , Tutorial.Predicates.Preconditions
+        , Tutorial.Predicates.Contracts
+        , Tutorial.Predicates.ErrorHandling
+        , Tutorial.Predicates.Truth
         , Solutions.Predicates
         -- Chapter 14: Primitives
         , Tutorial.Prim
