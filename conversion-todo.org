@@ -8,7 +8,7 @@
 * DONE Add links from github to mdbook and from mdbook to github
 This one's best done after migrating to the community project so we can have the correct url
 * DONE Organize ipkg modules in chapter order
-* STRT Break Chapters into sub-chapters as appropriate
+* DONE Break Chapters into sub-chapters as appropriate
 * TODO Inject highlighted repl output
 ** TODO Actual test injection
 Thread local IDEMode?

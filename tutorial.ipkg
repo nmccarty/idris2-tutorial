@@ -104,4 +104,8 @@ modules = Appendices.Neovim
         , Solutions.Predicates
         -- Chapter 14: Primitives
         , Tutorial.Prim
+        , Tutorial.Prim.Prim
+        , Tutorial.Prim.Strings
+        , Tutorial.Prim.Integers
+        , Tutorial.Prim.Refined
         , Solutions.Prim

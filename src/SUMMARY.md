@@ -115,6 +115,13 @@
   - [The Truth about Interfaces](./Tutorial/Predicates/Truth.md)
   - [Conclusion](./Tutorial/Predicates/Conclusion.md)
 - [Primitives](./Tutorial/Prim.md)
+  - [How Primitives are Implemented](./Tutorial/Prim/Prim.md)
+  - [Working with Strings](./Tutorial/Prim/Strings.md)
+  - [Exercises](./Tutorial/Prim/Exercises1.md)
+  - [Integers](./Tutorial/Prim/Integers.md)
+  - [Exercises](./Tutorial/Prim/Exercises2.md)
+  - [Refined Primitives](./Tutorial/Prim/Refined.md)
+  - [Exercises](./Tutorial/Prim/Exercises3.md)
 
 ______________________________________________________________________
 
