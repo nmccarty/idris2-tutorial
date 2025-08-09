@@ -1,32 +1,37 @@
-* DONE Get CI up and running
-* DONE Fix that whole extra line breaks bug
-* DONE Rewrite README
-** DONE Link to SUMMARY.md
-** DONE Document building mdbook
-** DONE Move some of the existing prose to a preface chapter
-* DONE Build docker container locally instead of using one from my personal forgejo
-* DONE Add links from github to mdbook and from mdbook to github
+* Conversion tasks and initial editing
+** DONE Get CI up and running
+** DONE Fix that whole extra line breaks bug
+** DONE Rewrite README
+*** DONE Link to SUMMARY.md
+*** DONE Document building mdbook
+*** DONE Move some of the existing prose to a preface chapter
+** DONE Build docker container locally instead of using one from my personal forgejo
+** DONE Add links from github to mdbook and from mdbook to github
 This one's best done after migrating to the community project so we can have the correct url
-* DONE Organize ipkg modules in chapter order
-* DONE Break Chapters into sub-chapters as appropriate
-* DONE Configure mdformat
-* DONE Audit links
-* DONE Figure out exercise solutions situation
+** DONE Organize ipkg modules in chapter order
+** DONE Break Chapters into sub-chapters as appropriate
+** DONE Configure mdformat
+** DONE Audit links
+** DONE Figure out exercise solutions situation
 Will probably want to either convert the solutions files to markdown with katla or manually, and add them in a an appendex. Will need to go back and insert links/references.
-* STRT Rewrite prose to remove use of first person
-As this is becoming a community maintained tutorial, the prose should reflect the collective ownership and avoid the use of first person pronouns.
-* TODO Cleanup Imports and Exports
-* TODO Clean up fixity declarations
-* TODO Consistent on summary vs conclusion
-* TODO Place modules and visibility primer upfront
-* TODO Cleanup references to outdated sources
+** DONE Consistent on summary vs conclusion
+** STRT Clean Up Prose
+Need to:
++ Remove use of first person singular, to reflect the collective ownership
++ Update prose to reflect the new sub-chapter structure
++ Update links and clean up broken ones
++ Other minor editing changes to make the text flow better
+** TODO Cleanup Imports and Exports
+** TODO Clean up fixity declarations
+** TODO Place modules and visibility primer upfront
+** TODO Cleanup references to outdated sources
 Like the wiki library page
-* TODO Clean up exercise titling
+** TODO Clean up exercise titling
 Make sure section names match up with headers in solutions
-* TODO Inject highlighted repl output
-** TODO Actual test injection
+** TODO Inject highlighted repl output
+*** TODO Actual test injection
 Thread local IDEMode?
-** TODO Golden Tests
+*** TODO Golden Tests
 Should golden test the repl outputs to detect breakage
 
 These should also be compared in a whitespace insensitive way, im thinking, like:
@@ -40,10 +45,12 @@ These should also be compared in a whitespace insensitive way, im thinking, like
 #+end_src
 
 This keeps it readable as a raw markdown document, but provides easy processing for extraction and injection of the /actual/ repl output complete with highlighting.
-** TODO Special Handling for exec
-* TODO Selenized custom themes
+*** TODO Special Handling for exec
+** TODO Selenized custom themes
 Because I love myself
-* IDEA Standard library types
+** IDEA Standard library types
 When a subchapter reimplements a standard library type, we should maybe call this out and use the standard library type in future subchapters to decrease cross dependencies
-* IDEA Rename Modules To Chapter/Subchapter number?
+** IDEA Rename Modules To Chapter/Subchapter number?
 Could also potentially insert automatic linking?
+* New sections
+** TODO Property based testing

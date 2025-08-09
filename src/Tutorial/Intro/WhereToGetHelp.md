@@ -1,6 +1,6 @@
 # Where to get Help
 
-There are several resources available online and in print, where you can find help and documentation about the Idris programming language. Here is a non-comprehensive list of them:
+There are several resources available online and in print, where you can find help and documentation about the Idris programming language. Here is a non-comprehensive list:
 
 - [Type-Driven Development with Idris](https://www.manning.com/books/type-driven-development-with-idris)
 
@@ -12,7 +12,11 @@ There are several resources available online and in print, where you can find he
 
 - [The Idris 2 GitHub Repository](https://github.com/idris-lang/Idris2)
 
-  Look here for detailed installation instructions and some introductory material. There is also a [wiki](https://github.com/idris-lang/Idris2/wiki), where you can find a [list of editor plugins](https://github.com/idris-lang/Idris2/wiki/The-Idris-editor-experience), a [list of community libraries](https://github.com/idris-lang/Idris2/wiki/Libraries), a [list of external backends](https://github.com/idris-lang/Idris2/wiki/External-backends), and other useful information.
+  Look here for detailed installation instructions and some introductory material. There is also a [wiki](https://github.com/idris-lang/Idris2/wiki), where you can find a [list of editor plugins](https://github.com/idris-lang/Idris2/wiki/Editor-Support), a [list of external backends](https://github.com/idris-lang/Idris2/wiki/External-backends), and other useful information.
+
+- [The pack Database](https://github.com/stefan-hoeck/idris2-pack-db/blob/main/STATUS.md)
+
+  This is the listing of all the libraries included in [pack](https://github.com/stefan-hoeck/idris2-pack)'s collection, which is currently the most comprehensive source of community contributed libraries for Idris 2.
 
 - [The Idris 2 Discord Channel](https://discord.gg/UX68fDs2jc)
 
@@ -20,7 +24,7 @@ There are several resources available online and in print, where you can find he
 
 - The Idris REPL
 
-  Finally, a lot of useful information can be provided by Idris itself. I tend to have at least one REPL session open all the time when programming in Idris. My editor (neovim) is set up to use the [language server for Idris 2](https://github.com/idris-community/idris2-lsp), which is incredibly useful. In the REPL,
+  Finally, a lot of useful information can be provided by Idris itself. Many users tend to kep at least one REPL open while working on an Idris project. Text editors can be set up to use the [language server for Idris 2](https://github.com/idris-community/idris2-lsp), which is incredibly useful. In the REPL,
 
   - use `:t` to inspect the type of an expression or meta variable (hole): `:t foldl`,
   - use `:ti` to inspect the type of a function including implicit arguments: `:ti foldl`,

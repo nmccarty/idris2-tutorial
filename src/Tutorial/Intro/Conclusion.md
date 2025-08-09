@@ -1,4 +1,4 @@
-# Summary
+# Conclusion
 
 In this introduction we learned about the most basic features of the Idris programming language. We used the REPL to tinker with our ideas and inspect the types of things in our code, and we used the Idris compiler to compile an Idris source file to an executable.
 

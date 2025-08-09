@@ -10,7 +10,7 @@
   - [A First Idris Program](./Tutorial/Intro/FirstIdrisProgram.md)
   - [The Shape of an Idris Definition](./Tutorial/Intro/ShapeOfADef.md)
   - [Where to Get Help](./Tutorial/Intro/WhereToGetHelp.md)
-  - [Summary](./Tutorial/Intro/Summary.md)
+  - [Conclusion](./Tutorial/Intro/Conclusion.md)
 - [Functions Part 1](./Tutorial/Functions1.md)
   - [Functions With More Than One Argument](./Tutorial/Functions1/FunctionsWithMultipleArguments.md)
   - [Function Composition](./Tutorial/Functions1/FunctionComposition.md)
