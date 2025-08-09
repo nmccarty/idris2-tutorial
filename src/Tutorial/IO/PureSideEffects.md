@@ -10,7 +10,7 @@ import Data.Vect
 %default total
 ```
 
-If we once again look at the *hello world* example from the [introduction](Intro.md), it had the following type and implementation:
+If we once again look at the *hello world* example from the introduction, it had the following type and implementation:
 
 ```idris
 hello : IO ()

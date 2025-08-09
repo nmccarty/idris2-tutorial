@@ -16,4 +16,4 @@ Note, that data type `Vect` together with many of the functions we implemented h
 
 ## What's next
 
-In the [next section](IO.md), it is time to learn how to write effectful programs and how to do this while still staying *pure*.
+In the next section, it is time to learn how to write effectful programs and how to do this while still staying *pure*.

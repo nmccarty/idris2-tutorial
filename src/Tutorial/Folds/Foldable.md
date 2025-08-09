@@ -156,7 +156,7 @@ foldMapList : Monoid m => (a -> m) -> List a -> m
 foldMapList f = leftFold (\vm,va => vm <+> f va) neutral
 ```
 
-Note how, with `foldMapList`, we no longer need to pass an accumulator function. All we need is a conversion from the element type to a type with an implementation of `Monoid`. As we have already seen in the chapter about [interfaces](Interfaces.md), there are *many* monoids in functional programming, and therefore, `foldMapList` is an incredibly useful function.
+Note how, with `foldMapList`, we no longer need to pass an accumulator function. All we need is a conversion from the element type to a type with an implementation of `Monoid`. As we have already seen in the chapter about interfaces, there are *many* monoids in functional programming, and therefore, `foldMapList` is an incredibly useful function.
 
 We could make this even shorter: If the elements in our list already are of a type with a monoid implementation, we don't even need a conversion function to collapse the list:
 

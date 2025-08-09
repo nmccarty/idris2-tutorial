@@ -120,7 +120,7 @@ aMaybe = get _ hlist
 
 ## Use Case: A nicer Schema
 
-In the chapter about [sigma types](DPair.md), we introduced a schema for CSV files. This was not very nice to use, because we had to use natural numbers to access a certain column. Even worse, users of our small library had to do the same. There was no way to define a name for each column and access columns by name. We are going to change this. Here is an encoding for this use case:
+In the chapter about sigma types, we introduced a schema for CSV files. This was not very nice to use, because we had to use natural numbers to access a certain column. Even worse, users of our small library had to do the same. There was no way to define a name for each column and access columns by name. We are going to change this. Here is an encoding for this use case:
 
 ```idris
 public export

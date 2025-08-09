@@ -13,7 +13,7 @@ import Data.Vect
 %default total
 ```
 
-Finally, `Monad`. A lot of ink has been spilled about this one. However, after what we already saw in the [chapter about `IO`](IO.md), there is not much left to discuss here. `Monad` extends `Applicative` and adds two new related functions: The *bind* operator (`(>>=)`) and function `join`. Here is its definition:
+Finally, `Monad`. A lot of ink has been spilled about this one. However, after what we already saw in the chapter about `IO`, there is not much left to discuss here. `Monad` extends `Applicative` and adds two new related functions: The *bind* operator (`(>>=)`) and function `join`. Here is its definition:
 
 ```idris
 interface Applicative' m => Monad' m where

@@ -22,4 +22,4 @@ We covered a lot of ground in this chapter, so I'll summarize the most important
 
 ## What's next
 
-In the [next section](Interfaces.md), we will introduce *interfaces*, another approach to *function overloading*.
+In the next section, we will introduce *interfaces*, another approach to *function overloading*.

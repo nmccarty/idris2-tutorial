@@ -19,7 +19,7 @@ Main> :t sum
 Prelude.sum : Num a => Foldable t => t a -> a
 ```
 
-This is - of course - similar to `sumList` from Exercise 10 of the [last section](Interfaces.md), but generalized to all container types with a `Foldable` implementation. We will learn about interface `Foldable` in a later section.
+This is - of course - similar to `sumList` from Exercise 10 of the last section, but generalized to all container types with a `Foldable` implementation. We will learn about interface `Foldable` in a later section.
 
 In order to also calculate the variance, we need to convert every value in the list to a new value, as we have to subtract the mean from every value in the list and square the result. In the previous section's exercises, we defined function `mapList` for this. The *Prelude* - of course - already exports a similar function called `map`, which is again more general and works also like our `mapMaybe` for `Maybe` and `mapEither` for `Either e`. Here's its type:
 

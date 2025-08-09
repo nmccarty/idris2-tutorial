@@ -42,7 +42,7 @@
 
     3. Implement `(++)` for `HList`.
 
-    4. Implement `index` for `HList`. This might be harder than the other three. Go back and look how we implemented `indexList` in an [earlier exercise](Dependent.md) and start from there.
+    4. Implement `index` for `HList`. This might be harder than the other three. Go back and look how we implemented `indexList` in an earlier exercise and start from there.
 
     5. Package *contrib*, which is part of the Idris project, provides `Data.HVect.HVect`, a data type for heterogeneous vectors. The only difference to our own `HList` is, that `HVect` is indexed over a vector of types instead of a list of types. This makes it easier to express certain operations at the type level.
 

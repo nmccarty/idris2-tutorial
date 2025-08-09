@@ -27,7 +27,7 @@ data Vect : (len : Nat) -> (a : Type) -> Type where
   (::) : (x : a) -> (xs : Vect n a) -> Vect (S n) a
 ```
 
-Before we move on, please compare this with the implementation of `Seq` in the [section about algebraic data types](DataTypes.md). The constructors are exactly the same: `Nil` and `(::)`. But there is an important difference: `Vect`, unlike `Seq` or `List`, is not a function from `Type` to `Type`, it is a function from `Nat` to `Type` to `Type`. Go ahead! Open the REPL and verify this! The `Nat` argument (also called an *index*) represents the *length* of the vector here. `Nil` has type `Vect 0 a`: A vector of length zero. *Cons* has type `a -> Vect n a -> Vect (S n) a`: It is exactly one element longer (`S n`) than its second argument, which is of length `n`.
+Before we move on, please compare this with the implementation of `Seq` in the section about algebraic data types. The constructors are exactly the same: `Nil` and `(::)`. But there is an important difference: `Vect`, unlike `Seq` or `List`, is not a function from `Type` to `Type`, it is a function from `Nat` to `Type` to `Type`. Go ahead! Open the REPL and verify this! The `Nat` argument (also called an *index*) represents the *length* of the vector here. `Nil` has type `Vect 0 a`: A vector of length zero. *Cons* has type `a -> Vect n a -> Vect (S n) a`: It is exactly one element longer (`S n`) than its second argument, which is of length `n`.
 
 Let's experiment with this idea to gain a better understanding. There is only one way to come up with a vector of length zero:
 

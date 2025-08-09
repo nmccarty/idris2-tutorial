@@ -14,4 +14,4 @@
 
 ## What's next
 
-Now, that we had a glimpse at *monads* and the *bind* operator, it is time to in the [next chapter](Functor.md) introduce `Monad` and some related interfaces for real.
+Now, that we had a glimpse at *monads* and the *bind* operator, it is time to in the next chapter introduce `Monad` and some related interfaces for real.

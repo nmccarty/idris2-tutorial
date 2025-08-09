@@ -29,4 +29,4 @@ Tutorial.Functions1.not : (Integer -> Bool) -> (Integer -> Bool) -> Integer -> B
 
 ## What's next
 
-In the [next section](DataTypes.md), we will learn how to define our own data types and how to construct and deconstruct values of these new types. We will also learn about generic types and functions.
+In the next section, we will learn how to define our own data types and how to construct and deconstruct values of these new types. We will also learn about generic types and functions.

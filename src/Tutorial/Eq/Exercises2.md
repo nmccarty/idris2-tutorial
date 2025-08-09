@@ -6,7 +6,7 @@ In these exercises, you are going to proof several simple properties of small fu
 
 2. Proof that `map id` on a list returns the list unmodified.
 
-3. Proof that complementing a strand of a nucleobase (see the [previous chapter](DPair.md#use-case-nucleic-acids)) twice leads to the original strand.
+3. Proof that complementing a strand of a nucleobase (see the previous chapter) twice leads to the original strand.
 
    Hint: Proof this for single bases first, and use `cong2` from the *Prelude* in your implementation for sequences of nucleic acids.
 

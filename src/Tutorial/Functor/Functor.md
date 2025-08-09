@@ -172,7 +172,7 @@ implementation Functor' (Either e) where
   map' f (Right va) = Right $ f va
 ```
 
-Here is another example, this time for a type constructor of type `Bool -> Type -> Type` (you might remember this from the exercises in the [last chapter](IO.md)):
+Here is another example, this time for a type constructor of type `Bool -> Type -> Type` (you might remember this from the exercises in the last chapter):
 
 ```idris
 data List01 : (nonEmpty : Bool) -> Type -> Type where

@@ -2,7 +2,7 @@
 
 In the following exercises, you are going to implement some very basic properties of equality proofs. You'll have to come up with the types of the functions yourself, as the implementations will be incredibly simple.
 
-Note: If you can't remember what the terms "reflexive", "symmetric", and "transitive" mean, quickly read about equivalence relations [here](https://en.wikipedia.org/wiki/Equivalence_relation).
+Note: If you can't remember what the terms "reflexive", "symmetric", and "transitive" mean, quickly read about [equivalence relations](https://en.wikipedia.org/wiki/Equivalence_relation).
 
 1. Show that `SameColType` is a reflexive relation.
 

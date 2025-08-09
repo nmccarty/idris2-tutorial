@@ -79,7 +79,7 @@ So Idris is right in not trusting us. You might expect it to inspect the impleme
 
 ## A Type for equal Schemata
 
-The problem described above is similar to what we saw when we talked about the benefit of [singleton types](DPair.md#erased-existentials): The types are not precise enough. What we are going to do now, is something we'll repeat time again for different use cases: We encode a contract between values in an indexed data type:
+The problem described above is similar to what we saw when we talked about the benefit of singleton types: The types are not precise enough. What we are going to do now, is something we'll repeat time again for different use cases: We encode a contract between values in an indexed data type:
 
 ```idris
 public export

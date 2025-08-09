@@ -18,4 +18,4 @@ We again covered a lot of ground in this section. I can't stress enough that you
 
 ## What's next
 
-In the [next chapter](Dependent.md) we'll start using dependent types to help us write provably correct code. Having a good understanding of how to read Idris' type signatures will be of paramount importance there. Whenever you feel lost, add one or more holes and inspect their context to decide what to do next.
+In the next chapter we'll start using dependent types to help us write provably correct code. Having a good understanding of how to read Idris' type signatures will be of paramount importance there. Whenever you feel lost, add one or more holes and inspect their context to decide what to do next.

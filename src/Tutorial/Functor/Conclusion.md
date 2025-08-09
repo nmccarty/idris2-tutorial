@@ -14,4 +14,4 @@
 
 ## What's next?
 
-In the [next chapter](Folds.md) we get to learn more about recursion, totality checking, and an interface for collapsing container types: `Foldable`.
+In the next chapter we get to learn more about recursion, totality checking, and an interface for collapsing container types: `Foldable`.

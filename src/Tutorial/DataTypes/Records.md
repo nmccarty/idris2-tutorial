@@ -68,7 +68,7 @@ getAgePostfix u = u.age
 
 ## Syntactic Sugar for Records
 
-As was already mentioned in the [intro](Intro.md), Idris is a *pure* functional programming language. In pure functions, we are not allowed to modify global mutable state. As such, if we want to modify a record value, we will always create a *new* value with the original value remaining unchanged: Records and other Idris values are *immutable*. While this *can* have a slight impact on performance, it has the benefit that we can freely pass a record value to different functions, without fear of the functions modifying the value by in-place mutation. These are, again, very strong guarantees, which makes it drastically easier to reason about our code.
+As was already mentioned in the introduction, Idris is a *pure* functional programming language. In pure functions, we are not allowed to modify global mutable state. As such, if we want to modify a record value, we will always create a *new* value with the original value remaining unchanged: Records and other Idris values are *immutable*. While this *can* have a slight impact on performance, it has the benefit that we can freely pass a record value to different functions, without fear of the functions modifying the value by in-place mutation. These are, again, very strong guarantees, which makes it drastically easier to reason about our code.
 
 There are several ways to modify a record, the most general being to pattern match on the record and adjust each field as desired. If, for instance, we'd like to increase the age of a `User` by one, we could do the following:
 
