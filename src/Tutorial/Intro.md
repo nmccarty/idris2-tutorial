@@ -1,16 +1,16 @@
 # Introduction
 
-Welcome to my Idris 2 tutorial. I'll try and treat as many aspects of the Idris 2 programming language as possible here. All `.md` files in here are literate Idris files: They consist of Markdown (hence the `.md` ending), which is being pretty printed by GitHub together with Idris code blocks, which can be type checked and built by the Idris compiler (more on this later). Note, however, that regular Idris source files use an `.idr` ending, and that you go with that file type unless you end up writing much more prose than code as I do at the moment. Later in this tutorial, you'll have to solve some exercises, the solutions of which can be found in the `src/Solutions` subfolder. There, I use regular `.idr` files.
-
-Before we begin, make sure to install the Idris compiler on your system. Throughout this tutorial, I assume you installed the *pack* package manager and setup a skeleton package as described [here](../Appendices/Install.md). It is certainly possible to follow along with just the Idris compiler installed by other means, but some adjustments will be necessary when starting REPL sessions or building executables.
-
-Every Idris source file should typically start with a module name plus some necessary imports, and this document is no exception:
+Many of the Markdown files [making up this book](https://github.com/idris-community/idris2-tutorial) (those with a `.md` file extension) are _literate_ Idris files, consisting of a mixture of Markdown and Idris code, and can be type checked and built just like regular code by the Idris compiler. You can identify a document as a literate Idris document if it contains a `module` declaration, like so:
 
 ```idris
 module Tutorial.Intro
 ```
 
-A module name consists of a list of identifiers separated by dots and must reflect the folder structure plus the module file's name.
+Even though this file (`src/Tutorial/Intro.md`) has no actual code in it, by including that `module` declaration, it qualifies as a literate Idris file. A module name consists of a list of identifiers separated by dots and must reflect the folder structure plus the module file's name, starting from the source directory. For instance, as this file's path, from the root of the `src` directory is `Tutorial/Intro.md`, it's module name _must_ be `Tutorial.Intro`.
+
+Before starting this book, make sure you have the Idris compiler installed on your computer. While it is technically possible to work through this book without it, we recommend that you have the _pack_ package manager installed and have a skeleton package setup as described in the [Getting Started with pack and Idris2](../Appendices/Install.md) appendix, as such a setup is assumed.
+
+Later in the book, you will encounter various exercises. The solutions to these exercises can be found as regular Idris files in the `src/Solutions` directory of the [git repository](https://github.com/idris-community/idris2-tutorial/tree/main/src/Solutions), or in syntax highlight form in the "Exercise Solutions" section at the bottom of the navigation sidebar.
 
 <!-- vi: filetype=idris2:syntax=markdown
 -->

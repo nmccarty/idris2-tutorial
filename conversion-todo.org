@@ -13,6 +13,16 @@ This one's best done after migrating to the community project so we can have the
 * DONE Audit links
 * DONE Figure out exercise solutions situation
 Will probably want to either convert the solutions files to markdown with katla or manually, and add them in a an appendex. Will need to go back and insert links/references.
+* STRT Rewrite prose to remove use of first person
+As this is becoming a community maintained tutorial, the prose should reflect the collective ownership and avoid the use of first person pronouns.
+* TODO Cleanup Imports and Exports
+* TODO Clean up fixity declarations
+* TODO Consistent on summary vs conclusion
+* TODO Place modules and visibility primer upfront
+* TODO Cleanup references to outdated sources
+Like the wiki library page
+* TODO Clean up exercise titling
+Make sure section names match up with headers in solutions
 * TODO Inject highlighted repl output
 ** TODO Actual test injection
 Thread local IDEMode?
@@ -31,19 +41,8 @@ These should also be compared in a whitespace insensitive way, im thinking, like
 
 This keeps it readable as a raw markdown document, but provides easy processing for extraction and injection of the /actual/ repl output complete with highlighting.
 ** TODO Special Handling for exec
-* TODO Rewrite prose to remove use of first person
-As this is becoming a community maintained tutorial, the prose should reflect the collective ownership and avoid the use of first person pronouns.
 * TODO Selenized custom themes
 Because I love myself
-* TODO Cleanup Imports and Exports
-* TODO Clean up fixity declarations
-* TODO Consistent on summary vs conclusion
-* TODO Place modules and visibility primer upfront
-* TODO Cleanup references to outdated sources
-Like the wiki library page
-* TODO Clean up exercise titling
-Make sure section names match up with headers in solutions
-* IDEA Number at front of subchapter names to enforce ordering when viewing in github?
 * IDEA Standard library types
 When a subchapter reimplements a standard library type, we should maybe call this out and use the standard library type in future subchapters to decrease cross dependencies
 * IDEA Rename Modules To Chapter/Subchapter number?

@@ -1,6 +1,6 @@
 # Summary
 
-[Functional Programming in Idris 2](./Preface.md)
+[The Idris 2 Programming Langauge](./Preface.md)
 
 # Core Language Features
 
