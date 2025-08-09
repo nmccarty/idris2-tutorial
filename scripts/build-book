@@ -10,19 +10,6 @@ my $tempdir = tempdir.IO;
 my $ttc-number = dir('build/ttc').first.basename;
 my $ttc = "build/ttc/$ttc-number".IO;
 
-# Filenames to ignore while processing source files
-my Str:D @ignored = [
-    "README.md",
-    "SUMMARY.md",
-];
-# Check to see if a filename is ignored
-sub not-ignored($path) {
-    for @ignored -> $ignored {
-        return False if $path.ends-with: $ignored;
-    }
-    return True;
-}
-
 # Copy a file from the current directory to the temporary directory, preserving
 # realtive path. Resolves symlinks in source, but does not reflect symlink
 # resoultion in the output path
@@ -50,18 +37,40 @@ sub copy-to-dest($src) {
 
 # Copy our metadata files
 copy-to-dest "book.toml";
-copy-to-dest "src/SUMMARY.md";
 
 # Katla over the source files, just plain copying them if the ttm doesn't exist
-for paths("src", :file(*.&not-ignored)).race(batch => 1, degree => Kernel.cpu-cores * 16) -> $path {
-    my $ttc-path = $ttc.add($path.IO.relative: "src").extension: "ttm";
+# Implement special handling for idr files
+for paths("src").race(batch => 1, degree => Kernel.cpu-cores * 16) -> $path {
     my $rel-path = $path.IO.relative;
-    if $ttc-path ~~ :e {
-        say "Running katla on ", $rel-path, " with ttc at ", $ttc-path.relative;
-        katla $path.IO.relative, $ttc-path.relative;
-    } else {
-        say "ttc not found for ", $rel-path, " copying verbaitm";
-        copy-to-dest $rel-path;
+    my $ttc-path = $ttc.add($path.IO.relative: "src").extension: "ttm";
+    given $path.IO.extension {
+        when "md" {
+            # Use the presense of a ttm file to detect if this markdown file was a regular
+            # markdown file or a literate idris document
+            if $ttc-path ~~ :e {
+                # ttm found, this is a literate idris document
+                say "Running katla on ", $rel-path, " with ttc at ", $ttc-path.relative;
+                katla-markdown $path.IO.relative, $ttc-path.relative;
+            } else {
+                say "ttc not found for ", $rel-path, " copying verbaitm";
+                copy-to-dest $rel-path;
+            }
+        }
+        when "idr" {
+            die "Idris file ", $rel-path, " didn't have ttm: ", $ttc-path
+                unless $ttc-path ~~ :e;
+
+            say "Running katla on ", $rel-path,
+                " with ttc at ", $ttc-path.relative,
+                " sending to ", $path.IO.extension('md').relative;
+            katla-html $path.IO.relative, $ttc-path.relative, $path.IO.extension('md').relative;
+            # katla $path.IO.relative,
+            $ttc-path.relative,
+            output-name => $path.IO.extension('md').relative;
+        }
+        default {
+            say "Copying ", $rel-path, " verbatim";
+        }
     }
 }
 
@@ -76,15 +85,53 @@ indir $tempdir, {
 rm_rf "book";
 cp $tempdir.add("book"), "book", :r;
 
-# This function goes at the end because it breaks emacs fontification after it
-# for some bizzare reason.
-#
-# Invoke katla on a source file, streaming its output to the temporary directory
-sub katla($src, $ttc-src) {
+# Invoke katla on an idris source file, mangling the output into a markdown file
+sub katla-html($src, $ttc-src, $out-path) {
+    # Run katla and collect the output
+    # TODO: Detect and handle katla errors
+    my $katla = run 'katla', 'html', $src, $ttc-src, :out;
+    my $raw-output = $katla.out.slurp(:close);
+    # Extract just the code from the output
+    my $output = ($raw-output ~~ /'<code' .* '</code>'/ ).Str;
+    # Rerrange into a markdown document
+    $output = process-katla-output($output);
+    $output = qq:to/END/;
+    # $src
+    $output
+    END
+    # Strip line numbering
+    $output.=subst(
+        /'<div id="line' \d+ '"><a href="#line' \d+ '" class="IdrisLineNumber">' [ '&nbsp;' | \s ]+ \d+ ' | </a>'/,
+        '',
+        :g
+    );
+    $output.=subst(/'</div>'$$/,'',:g);
+    # Spurt the output to the temporary directory
+    my $output-path = $tempdir.add: $out-path;
+    if !$output-path.parent.d {
+        $output-path.parent.mkdir;
+    }
+    $output-path.spurt($output);
+}
+
+# Invoke katla on a markdown source file, streaming its output to the temporary directory
+sub katla-markdown($src, $ttc-src) {
     # Run katla and collect the output
     # TODO: Detect and handle katla errors
     my $katla = run 'katla', 'markdown', $src, $ttc-src, :out;
     my $output = $katla.out.slurp(:close);
+    $output = process-katla-output($output);
+    # Spurt the output to the temporary directory
+    my $output-path = $tempdir.add: $src;
+    if !$output-path.parent.d {
+        $output-path.parent.mkdir;
+    }
+    $output-path.spurt($output);
+}
+
+# Process the output from katla
+sub process-katla-output($orig-output) {
+    my $output = $orig-output;
     # Post process katla output to set themeing correctly
     $output ~~ s:g/'<style>' .* '</style>'//;
     $output ~~ s:g/'<br />'//;
@@ -102,11 +149,5 @@ sub katla($src, $ttc-src) {
     $output ~~ s:g/'="IdrisType"'/="hljs-type"/;
     $output ~~ s:g/'="IdrisNamespace"'/="hljs-symbol hljs-emphasis"/;
     $output.=subst(/'<code class="IdrisCode">'\s*/, '<code class="IdrisCode">', :g);
-
-    # Spurt the output to the temporary directory
-    my $output-path = $tempdir.add: $src;
-    if !$output-path.parent.d {
-        $output-path.parent.mkdir;
-    }
-    $output-path.spurt($output);
+    $output
 }
