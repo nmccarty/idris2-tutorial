@@ -26,8 +26,8 @@ modules = Appendices.Neovim
         , Tutorial.Functions1.HigherOrder
         , Tutorial.Functions1.Currying
         , Tutorial.Functions1.Operators
-        , Tutorial.Functions1.Exercises
         , Tutorial.Functions1.Lambdas
+        , Tutorial.Functions1.Exercises
         , Solutions.Functions1
         -- Chapter 3: Algebraic Data Types
         , Tutorial.DataTypes

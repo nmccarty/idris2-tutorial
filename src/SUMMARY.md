@@ -11,14 +11,14 @@
   - [The Shape of an Idris Definition](./Tutorial/Intro/ShapeOfADef.md)
   - [Where to Get Help](./Tutorial/Intro/WhereToGetHelp.md)
   - [Conclusion](./Tutorial/Intro/Conclusion.md)
-- [Functions Part 1](./Tutorial/Functions1.md)
+- [Introduction To Functions](./Tutorial/Functions1.md)
   - [Functions With More Than One Argument](./Tutorial/Functions1/FunctionsWithMultipleArguments.md)
   - [Function Composition](./Tutorial/Functions1/FunctionComposition.md)
   - [Higher Order Functions](./Tutorial/Functions1/HigherOrder.md)
   - [Currying](./Tutorial/Functions1/Currying.md)
   - [Anonymous Functions](./Tutorial/Functions1/Lambdas.md)
   - [Operators](./Tutorial/Functions1/Operators.md)
-  - [Exercises](./Tutorial/Functions1/Exercises.md)
+  - [Introductory Function Exercises](./Tutorial/Functions1/Exercises.md)
   - [Conclusion](./Tutorial/Functions1/Conclusion.md)
 - [Algebraic Data Types](./Tutorial/DataTypes.md)
   - [Enumerations](./Tutorial/DataTypes/Enumerations.md)
@@ -136,7 +136,7 @@ ______________________________________________________________________
 
 # Exercise Solutions
 
-- [Functions Part 1](./Solutions/Functions1.md)
+- [Introductory Function Exercises](./Solutions/Functions1.md)
 - [Algebraic Data Types](./Solutions/DataTypes.md)
 - [Interfaces](./Solutions/Interfaces.md)
 - [Functions Part 2](./Solutions/Functions2.md)

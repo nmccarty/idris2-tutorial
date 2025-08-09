@@ -1,61 +1,77 @@
-# Exercises
+# Introductory Function Exercises
 
 ```idris
 module Tutorial.Functions1.Exercises
 ```
 
-1. Reimplement functions `testSquare` and `twice` by using the dot operator and dropping the second arguments (have a look at the implementation of `squareTimes2` to get an idea where this should lead you). This highly concise way of writing function implementations is sometimes called *point-free style* and is often the preferred way of writing small utility functions.
+The solutions to these exercises can be found in [`src/Solutions/Functions1.idr`](../../Solutions/Functions1.md).
 
-2. Declare and implement function `isOdd` by combining functions `isEven` from above and `not` (from the Idris *Prelude*). Use point-free style.
+## Exercise 1
 
-3. Declare and implement function `isSquareOf`, which checks whether its first `Integer` argument is the square of the second argument.
+Reimplement functions `testSquare` and `twice` by using the dot operator and dropping the second arguments (have a look at the implementation of `squareTimes2` to get an idea where this should lead you). This highly concise way of writing function implementations is sometimes called *point-free style* and is often the preferred way of writing small utility functions.
 
-4. Declare and implement function `isSmall`, which checks whether its `Integer` argument is less than or equal to 100. Use one of the comparison operators `<=` or `>=` in your implementation.
+## Exercise 2
 
-5. Declare and implement function `absIsSmall`, which checks whether the absolute value of its `Integer` argument is less than or equal to 100. Use functions `isSmall` and `abs` (from the Idris *Prelude*) in your implementation, which should be in point-free style.
+Declare and implement function `isOdd` by combining functions `isEven` from above and `not` (from the Idris *Prelude*). Use point-free style.
 
-6. In this slightly extended exercise we are going to implement some utilities for working with `Integer` predicates (functions from `Integer` to `Bool`). Implement the following higher-order functions (use boolean operators `&&`, `||`, and function `not` in your implementations):
+## Exercise 3
 
-   ```idris
-   -- return true, if and only if both predicates hold
-   and : (Integer -> Bool) -> (Integer -> Bool) -> Integer -> Bool
+Declare and implement function `isSquareOf`, which checks whether its first `Integer` argument is the square of the second argument.
 
-   -- return true, if and only if at least one predicate holds
-   or : (Integer -> Bool) -> (Integer -> Bool) -> Integer -> Bool
+## Exercise 4
 
-   -- return true, if the predicate does not hold
-   negate : (Integer -> Bool) -> Integer -> Bool
-   ```
+Declare and implement function `isSmall`, which checks whether its `Integer` argument is less than or equal to 100. Use one of the comparison operators `<=` or `>=` in your implementation.
 
-   After solving this exercise, give it a go in the REPL. In the example below, we use binary function `and` in infix notation by wrapping it in backticks. This is just a syntactic convenience to make certain function applications more readable:
+## Exercise 5
 
-   ```repl
-   Tutorial.Functions1> negate (isSmall `and` isOdd) 73
-   False
-   ```
+Declare and implement function `absIsSmall`, which checks whether the absolute value of its `Integer` argument is less than or equal to 100. Use functions `isSmall` and `abs` (from the Idris *Prelude*) in your implementation, which should be in point-free style.
 
-7. As explained above, Idris allows us to define our own infix operators. Even better, Idris supports *overloading* of function names, that is, two functions or operators can have the same name, but different types and implementations. Idris will make use of the types to distinguish between equally named operators and functions.
+## Exercise 6
 
-   This allows us, to reimplement functions `and`, `or`, and `negate` from Exercise 6 by using the existing operator and function names from boolean algebra:
+In this slightly extended exercise we are going to implement some utilities for working with `Integer` predicates (functions from `Integer` to `Bool`). Implement the following higher-order functions (use boolean operators `&&`, `||`, and function `not` in your implementations):
 
-   ```idris
-   -- return true, if and only if both predicates hold
-   (&&) : (Integer -> Bool) -> (Integer -> Bool) -> Integer -> Bool
-   x && y = and x y
+```idris
+-- return true, if and only if both predicates hold
+and : (Integer -> Bool) -> (Integer -> Bool) -> Integer -> Bool
 
-   -- return true, if and only if at least one predicate holds
-   (||) : (Integer -> Bool) -> (Integer -> Bool) -> Integer -> Bool
+-- return true, if and only if at least one predicate holds
+or : (Integer -> Bool) -> (Integer -> Bool) -> Integer -> Bool
 
-   -- return true, if the predicate does not hold
-   not : (Integer -> Bool) -> Integer -> Bool
-   ```
+-- return true, if the predicate does not hold
+negate : (Integer -> Bool) -> Integer -> Bool
+```
 
-   Implement the other two functions and test them at the REPL:
+After solving this exercise, give it a go in the REPL. In the example below, we use binary function `and` in infix notation by wrapping it in backticks. This is just a syntactic convenience to make certain function applications more readable:
 
-   ```repl
-   Tutorial.Functions1> not (isSmall && isOdd) 73
-   False
-   ```
+```repl
+Tutorial.Functions1> negate (isSmall `and` isOdd) 73
+False
+```
+
+## Exercise 7
+
+As explained above, Idris allows us to define our own infix operators. Even better, Idris supports *overloading* of function names, that is, two functions or operators can have the same name, but different types and implementations. Idris will make use of the types to distinguish between equally named operators and functions.
+
+This allows us, to reimplement functions `and`, `or`, and `negate` from Exercise 6 by using the existing operator and function names from boolean algebra:
+
+```idris
+-- return true, if and only if both predicates hold
+(&&) : (Integer -> Bool) -> (Integer -> Bool) -> Integer -> Bool
+x && y = and x y
+
+-- return true, if and only if at least one predicate holds
+(||) : (Integer -> Bool) -> (Integer -> Bool) -> Integer -> Bool
+
+-- return true, if the predicate does not hold
+not : (Integer -> Bool) -> Integer -> Bool
+```
+
+Implement the other two functions and test them at the REPL:
+
+```repl
+Tutorial.Functions1> not (isSmall && isOdd) 73
+False
+```
 
 <!-- vi: filetype=idris2:syntax=markdown
 -->

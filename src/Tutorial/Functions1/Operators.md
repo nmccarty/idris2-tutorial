@@ -4,7 +4,7 @@
 module Tutorial.Functions1.Operators
 ```
 
-In Idris, infix operators like `.`, `*` or `+` are not built into the language, but are just regular Idris function with some special support for using them in infix notation. When we don't use operators in infix notation, we have to wrap them in parentheses.
+In Idris, infix operators like `.`, `*` or `+` are not built into the language, they are instead just regular Idris function with some special support for using them in infix notation. When we use operators outside of infix notation, we have to wrap them in parentheses.
 
 As an example, let us define a custom operator for sequencing functions of type `Bits8 -> Bits8`:
 
@@ -44,7 +44,7 @@ Tutorial.Functions1> testSquare (10 <) 5
 True
 ```
 
-As you can see, there is a difference between `(< 10)` and `(10 <)`. The first tests, whether its argument is less than 10, the second, whether 10 is less than its argument.
+As you can see, there is a difference between `(< 10)` and `(10 <)`. The first tests whether its argument is less than 10, and the second tests whether 10 is less than its argument.
 
 One exception where operator sections will not work is with the *minus* operator `(-)`. Here is an example to demonstrate this:
 
@@ -70,7 +70,7 @@ Error: Can't find an implementation for Num (Integer -> Integer).
  1 | applyToTen (- 5)
 ```
 
-The problem here is, that Idris treats `- 5` as an integer literal instead of an operator section. In this special case, we therefore have to use an anonymous function instead:
+The problem here is that Idris treats `- 5` as an integer literal instead of an operator section. In this special case, we have to use an anonymous function instead:
 
 ```repl
 Tutorial.Functions1> applyToTen (\x => x - 5)
@@ -79,7 +79,7 @@ Tutorial.Functions1> applyToTen (\x => x - 5)
 
 ## Infix Notation for Non-Operators
 
-In Idris, it is possible to use infix notation for regular binary functions, by wrapping them in backticks. It is even possible to define a precedence (fixity) for these and use them in operator sections, just like regular operators:
+In Idris, it is possible to use infix notation for regular binary functions by wrapping them in backticks. It is even possible to define a precedence (fixity) for these and use them in operator sections, just like regular operators:
 
 ```idris
 infixl 8 `plus`
@@ -101,7 +101,7 @@ arithTest' = 5 + 10 * 12
 
 ## Operators exported by the *Prelude*
 
-Here is a list of important operators exported by the *Prelude*. Most of these are *constrained*, that is they work only for types implementing a certain *interface*. Don't worry about this right now. We will learn about interfaces in due time, and the operators behave as they intuitively should. For instance, addition and multiplication work for all numeric types, comparison operators work for almost all types in the *Prelude* with the exception of functions.
+Here is a list of important operators exported by the *Prelude*:
 
 - `(.)`: Function composition
 - `(+)`: Addition
@@ -113,7 +113,9 @@ Here is a list of important operators exported by the *Prelude*. Most of these a
 - `(<=)`, `(>=)`, `(<)`, and `(>)` : Comparison operators
 - `($)`: Function application
 
-The most special of the above is the last one. It has a priority of 0, so all other operators bind more tightly. In addition, function application binds more tightly, so this can be used to reduce the number of parentheses required. For instance, instead of writing `isTriple 3 4 (2 + 3 * 1)` we can write `isTriple 3 4 $ 2 + 3 * 1`, which is exactly the same. Sometimes, this helps readability, sometimes, it doesn't. The important thing to remember is that `fun $ x y` is just the same as `fun (x y)`.
+Most of these are *constrained*, that is they work only for types implementing a certain *interface*. Don't worry about this right now. We will learn about interfaces their own chapter later, and the operators behave as they intuitively should. For instance, addition and multiplication work for all numeric types, and comparison operators work for almost all types in the *Prelude* with the exception of functions.
+
+The most special of the above is the last one, `($)`. It has a priority of 0, so all other operators bind more tightly. In addition, function application binds more tightly, so this can be used to reduce the number of parentheses required in an expression. For instance, instead of writing `isTriple 3 4 (2 + 3 * 1)` we can write `isTriple 3 4 $ 2 + 3 * 1`, with exactly the same meaning. Sometimes this helps readability, other times it doesn't, you will naturally build an intuition for which form of a given expression is more readable with experience, especially from rereading your own code after some time has passed. The important thing to remember is that `fun $ x y` is just the same as `fun (x y)`.
 
 <!-- vi: filetype=idris2:syntax=markdown
 -->

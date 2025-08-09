@@ -23,7 +23,6 @@ Need to:
 + Other minor editing changes to make the text flow better
 ** TODO Cleanup Imports and Exports
 ** TODO Clean up fixity declarations
-** TODO Place modules and visibility primer upfront
 ** TODO Cleanup references to outdated sources
 Like the wiki library page
 ** TODO Clean up exercise titling
@@ -54,3 +53,5 @@ When a subchapter reimplements a standard library type, we should maybe call thi
 Could also potentially insert automatic linking?
 * New sections
 ** TODO Property based testing
+** TODO Place modules and visibility primer in the introduction
+This needs to come early in the book so new programmers can make sense of the use of imports to reference statements from the previous chapter.
