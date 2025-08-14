@@ -1,6 +1,6 @@
 # Conclusion
 
-We covered a lot of ground in this chapter, so I'll summarize the most important points below:
+In this chapter we learned that:
 
 - Enumerations are data types consisting of a finite number of possible *values*.
 
@@ -22,4 +22,4 @@ We covered a lot of ground in this chapter, so I'll summarize the most important
 
 ## What's next
 
-In the next section, we will introduce *interfaces*, another approach to *function overloading*.
+In the next chapter, we will introduce *interfaces*, another approach to *function overloading*.

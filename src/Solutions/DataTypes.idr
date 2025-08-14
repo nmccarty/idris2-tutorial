@@ -1,16 +1,16 @@
 module Solutions.DataTypes
 
--- If all or almost all functions in a module are provably
--- total, it is convenient to add the following pragma
--- at the top of the module. It is then no longer necessary
--- to annotate each function with the `total` keyword.
+-- If all or almost all functions in a module are provably total, it is
+-- convenient to add the following pragma at the top of the module. It is then
+-- no longer necessary to annotate each function with the `total` keyword.
 %default total
 
 --------------------------------------------------------------------------------
---          Enumerations
+--          Enumeration Exercises
 --------------------------------------------------------------------------------
 
--- 1
+-- Exercise 1
+
 and : Bool -> Bool -> Bool
 and True  b = b
 and False _ = False
@@ -19,7 +19,8 @@ or : Bool -> Bool -> Bool
 or True  _ = True
 or False b = b
 
---2
+-- Exercise 2
+
 data UnitOfTime = Second | Minute | Hour | Day | Week
 
 toSeconds : UnitOfTime -> Integer -> Integer
@@ -35,7 +36,7 @@ fromSeconds u s = s `div` toSeconds u 1
 convert : UnitOfTime -> Integer -> UnitOfTime -> Integer
 convert u1 n u2 = fromSeconds u2 (toSeconds u1 n)
 
---3
+-- Exercise 3
 
 data Element = H | C | N | O | F
 
@@ -53,17 +54,25 @@ atomicMass F = 18.9984
 
 data Title = Mr | Mrs | Other String
 
+-- Exercise 1
+
 eqTitle : Title -> Title -> Bool
 eqTitle Mr        Mr        = True
 eqTitle Mrs       Mrs       = True
 eqTitle (Other x) (Other y) = x == y
 eqTitle _         _         = False
 
+-- Exercise 2
+
 isOther : Title -> Bool
 isOther (Other _) = True
 isOther _         = False
 
+-- Exercise 3
+
 data LoginError = UnknownUser String | InvalidPassword | InvalidKey
+
+-- Exercise 4
 
 showError : LoginError -> String
 showError (UnknownUser x) = "Unknown user: " ++ x
@@ -74,7 +83,8 @@ showError InvalidKey      = "Invalid key"
 --          Records
 --------------------------------------------------------------------------------
 
--- 1
+-- Exercise 1
+
 record TimeSpan where
   constructor MkTimeSpan
   unit  : UnitOfTime
@@ -83,7 +93,8 @@ record TimeSpan where
 timeSpanToSeconds : TimeSpan -> Integer
 timeSpanToSeconds (MkTimeSpan unit value) = toSeconds unit value
 
--- 2
+-- Exercise 2
+
 eqTimeSpan : TimeSpan -> TimeSpan -> Bool
 eqTimeSpan x y = timeSpanToSeconds x == timeSpanToSeconds y
 
@@ -91,7 +102,8 @@ eqTimeSpan x y = timeSpanToSeconds x == timeSpanToSeconds y
 eqTimeSpan' : TimeSpan -> TimeSpan -> Bool
 eqTimeSpan' = (==) `on` timeSpanToSeconds
 
--- 3
+-- Exercise 3
+
 showUnit : UnitOfTime -> String
 showUnit Second = "s"
 showUnit Minute = "min"
@@ -104,7 +116,8 @@ prettyTimeSpan (MkTimeSpan Second v) = show v ++ " s"
 prettyTimeSpan (MkTimeSpan u v)      =
   show v ++ " " ++ showUnit u ++ "(" ++ show (toSeconds u v) ++ " s)"
 
--- 4
+-- Exercise 4
+
 compareUnit : UnitOfTime -> UnitOfTime -> Ordering
 compareUnit = compare `on` (\x => toSeconds x 1)
 
@@ -122,7 +135,7 @@ addTimeSpan (MkTimeSpan u1 v1) (MkTimeSpan u2 v2) =
 --          Generic Data Types
 --------------------------------------------------------------------------------
 
--- 1
+-- Exercise 1
 mapMaybe : (a -> b) -> Maybe a -> Maybe b
 mapMaybe _ Nothing  = Nothing
 mapMaybe f (Just x) = Just (f x)
@@ -149,7 +162,7 @@ last x y = first y x
 foldMaybe : (acc -> el -> acc) -> acc -> Maybe el -> acc
 foldMaybe f x = maybe x (f x)
 
--- 2
+-- Exercise 2
 mapEither : (a -> b) -> Either e a -> Either e b
 mapEither _ (Left x)  = Left x
 mapEither f (Right x) = Right (f x)
@@ -180,7 +193,7 @@ fromEither : (e -> c) -> (a -> c) -> Either e a -> c
 fromEither f _ (Left x)  = f x
 fromEither _ g (Right x) = g x
 
--- 3
+-- Exercise 3
 mapList : (a -> b) -> List a -> List b
 mapList f Nil       = Nil
 mapList f (x :: xs) = f x :: mapList f xs
@@ -218,7 +231,7 @@ foldList : (acc -> el -> acc) -> acc -> List el -> acc
 foldList fun vacc Nil       = vacc
 foldList fun vacc (x :: xs) = foldList fun (fun vacc x) xs
 
--- 4
+-- Exercise 4
 record Client where
   constructor MkClient
   name          : String
@@ -248,7 +261,7 @@ login (x :: xs) cs             = case login1 x cs of
   Left  InvalidKey      => Left InvalidKey
   Left _                => login xs cs
 
---5
+-- Exercise 5
 
 formulaMass : List (Element,Nat) -> Double
 formulaMass []             = 0

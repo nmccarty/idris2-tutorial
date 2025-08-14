@@ -1,32 +1,55 @@
-# Exercises part 2
+# Sum Type Exercises
 
 ```idris
 module Tutorial.DataTypes.Exercises2
+
+import Tutorial.DataTypes.SumTypes
 ```
 
-1. Implement an equality test for `Title` (you can use the equality operator `(==)` for comparing two `String`s):
+The solutions to these exercises can be found in [`src/Solutions/DataTypes.idr`](../../Solutions/DataTypes.md).
 
-   ```idris
-   total
-   eqTitle : Title -> Title -> Bool
-   ```
+## Exercise 1
 
-2. For `Title`, implement a simple test to check, whether a custom title is being used:
+Implement an equality test for `Title` (you can use the equality operator `(==)` for comparing two `String`s):
 
-   ```idris
-   total
-   isOther : Title -> Bool
-   ```
+```idris
+total
+eqTitle : Title -> Title -> Bool
+```
 
-3. Given our simple `Credentials` type, there are three ways for authentication to fail:
+## Exercise 2
 
-   - An unknown username was used.
-   - The password given does not match the one associated with the username.
-   - An invalid key was used.
+Implement a simple test for `Title` to check whether or not a custom title is being used:
 
-   Encapsulate these three possibilities in a sum type called `LoginError`, but make sure not to disclose any confidential information: An invalid username should be stored in the corresponding error value, but an invalid password or key should not.
+```idris
+total
+isOther : Title -> Bool
+```
 
-4. Implement function `showError : LoginError -> String`, which can be used to display an error message to the user who unsuccessfully tried to login into our web application.
+## Exercise 3
+
+Given our simple `Credentials` type, there are three ways for authentication to fail:
+
+- An unknown username was used.
+- The password given does not match the one associated with the username.
+- An invalid key was used.
+
+Encapsulate these three possibilities in a sum type called `LoginError`. Make sure not to disclose any confidential information, an invalid username should be stored in the corresponding error value, but an invalid password or key should not.
+
+## Exercise 4
+
+Implement the following function , which can be used to display an error message to the user after they unsuccessfully tried to login into our web application:
+
+```idris hide
+-- Hidden forward declaration to make this module compile so we can have syntax
+-- highlighting
+data LoginError : Type
+```
+
+```idris
+total
+showError : LoginError -> String
+```
 
 <!-- vi: filetype=idris2:syntax=markdown
 -->

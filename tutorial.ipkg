@@ -32,11 +32,12 @@ modules = Appendices.Neovim
         -- Chapter 3: Algebraic Data Types
         , Tutorial.DataTypes
         , Tutorial.DataTypes.Enumerations
-        , Tutorial.DataTypes.Exercises1
         , Tutorial.DataTypes.SumTypes
-        , Tutorial.DataTypes.Exercises2
         , Tutorial.DataTypes.Records
         , Tutorial.DataTypes.GenericDataTypes
+        , Tutorial.DataTypes.Exercises1
+        , Tutorial.DataTypes.Exercises2
+        , Tutorial.DataTypes.Exercises4
         , Tutorial.DataTypes.AltSyntax
         , Solutions.DataTypes
         -- Chapter 4: Interfaces
