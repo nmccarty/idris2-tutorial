@@ -7,10 +7,10 @@ module Solutions.DataTypes
 %default total
 
 --------------------------------------------------------------------------------
---          Enumerations
+--          Enumeration Exercises
 --------------------------------------------------------------------------------
 
--- 1
+-- Exercise 1
 and : Bool -> Bool -> Bool
 and True  b = b
 and False _ = False
@@ -19,7 +19,7 @@ or : Bool -> Bool -> Bool
 or True  _ = True
 or False b = b
 
---2
+-- Exercise 2
 data UnitOfTime = Second | Minute | Hour | Day | Week
 
 toSeconds : UnitOfTime -> Integer -> Integer
@@ -35,7 +35,7 @@ fromSeconds u s = s `div` toSeconds u 1
 convert : UnitOfTime -> Integer -> UnitOfTime -> Integer
 convert u1 n u2 = fromSeconds u2 (toSeconds u1 n)
 
---3
+-- Exercise 3
 
 data Element = H | C | N | O | F
 

@@ -22,7 +22,7 @@
   - [Conclusion](./Tutorial/Functions1/Conclusion.md)
 - [Algebraic Data Types](./Tutorial/DataTypes.md)
   - [Enumerations](./Tutorial/DataTypes/Enumerations.md)
-  - [Exercises](./Tutorial/DataTypes/Exercises1.md)
+  - [Enumeration Exercises](./Tutorial/DataTypes/Exercises1.md)
   - [Sum Types](./Tutorial/DataTypes/SumTypes.md)
   - [Exercises](./Tutorial/DataTypes/Exercises2.md)
   - [Records](./Tutorial/DataTypes/Records.md)
