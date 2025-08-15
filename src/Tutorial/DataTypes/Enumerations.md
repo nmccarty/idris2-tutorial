@@ -21,14 +21,15 @@ data Weekday = Monday
 
 The declaration above defines a new *type* (`Weekday`) and several new *values* (`Monday` through `Sunday`) of the given type (`Weekday`). Go ahead and try this type out this at the REPL:
 
+> [!NOTE]
+> Notice that the value `Monday` has type `Weekday`, while `Weekday` itself has type `Type`.
+
 ```repl
 Tutorial.DataTypes.Enumerations> :t Monday
 Tutorial.DataTypes.Enumerations.Monday : Weekday
 Tutorial.DataTypes.Enumerations> :t Weekday
 Tutorial.DataTypes.Enumerations.Weekday : Type
 ```
-
-Notice that the value `Monday` has type `Weekday`, while `Weekday` itself has type `Type`.
 
 It is important to note that a value of type `Weekday` can only ever be one of the values listed above, it is a *type error* to use any other value where a `Weekday` is expected.
 
@@ -58,9 +59,10 @@ For instance, if we invoke `next` with `Thursday` given as the argument, the fir
 
 Our `next` function is provably total. Since Idris knows about the possible values of type `Weekday`, it can therefore figure out that our pattern match covers all the possible cases. We can therefore annotate the function with the `total` keyword, and Idris will fail to compile with a type error if it can't verify the function's totality.
 
-Try removing one of the clauses in `next` to get a feel for what error messages from the coverage checker look like.
+> [!NOTE]
+> The totality and type checkers provide a very strong set of guarantees here. Given enough resources, a provably total function will *always* return a result of the specified type in a finite amount of time (*resources* here meaning computational resources like memory, time, or, in case of recursive functions, stack space).
 
-Note that these are very strong guarantees from the type checker: Given enough resources, a provably total function will *always* return a result of the specified type in a finite amount of time (*resources* here meaning computational resources like memory, time, or, in case of recursive functions, stack space).
+Try removing one of the clauses in `next` to get a feel for what error messages from the coverage checker look like.
 
 ## Catch-all Patterns
 

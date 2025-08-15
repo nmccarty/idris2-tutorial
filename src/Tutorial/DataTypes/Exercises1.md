@@ -8,13 +8,15 @@ module Tutorial.DataTypes.Exercises1
 
 Use pattern matching to implement your own versions of boolean operators `(&&)` and `(||)`, calling them `and` and `or` respectively.
 
-Note: One way to go about this is to enumerate all four possible combinations of two boolean values and give the result for each. However, there is a shorter, more clever way, requiring only two pattern matches for each of the two functions.
+> [!TIP]
+> One way to go about this is to enumerate all four possible combinations of two boolean values and give the result for each. However, there is a shorter, more clever way, requiring only two pattern matches for each of the two functions.
 
 ## Exercise 2
 
 Define your own data type representing different units of time (seconds, minutes, hours, days, weeks), and implement the following functions for converting between time spans with different units.
 
-Hint: Use integer division (`div`) when going from seconds to some larger unit like hours).
+> [!TIP]
+> Use integer division (`div`) when going from seconds to some larger unit like hours).
 
 ```idris
 data UnitOfTime = Second -- add additional values
