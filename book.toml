@@ -9,3 +9,5 @@ create-missing = false
 
 [output.html]
 preferred-dark-theme = "ayu"
+
+[preprocessor.alerts]
