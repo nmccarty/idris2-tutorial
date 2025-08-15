@@ -55,3 +55,6 @@ Could also potentially insert automatic linking?
 ** TODO Property based testing
 ** TODO Place modules and visibility primer in the introduction
 This needs to come early in the book so new programmers can make sense of the use of imports to reference statements from the previous chapter.
+* Mdbook features
+** TODO linkcheck
+** TODO open-on-gh
