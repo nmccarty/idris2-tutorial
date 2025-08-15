@@ -49,5 +49,6 @@ RUN git clone https://git.stranger.systems/Idris/iutils-raku.git /home/developer
 ENV PATH="/root/.cargo/bin:$PATH"
 RUN rustup toolchain install stable
 
-# Install mdbook
-RUN cargo install mdbook
+# Install mdbook and extensions
+RUN cargo install mdbook && \
+    cargo install mdbook-alerts
