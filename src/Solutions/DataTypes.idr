@@ -1,9 +1,8 @@
 module Solutions.DataTypes
 
--- If all or almost all functions in a module are provably
--- total, it is convenient to add the following pragma
--- at the top of the module. It is then no longer necessary
--- to annotate each function with the `total` keyword.
+-- If all or almost all functions in a module are provably total, it is
+-- convenient to add the following pragma at the top of the module. It is then
+-- no longer necessary to annotate each function with the `total` keyword.
 %default total
 
 --------------------------------------------------------------------------------
@@ -11,6 +10,7 @@ module Solutions.DataTypes
 --------------------------------------------------------------------------------
 
 -- Exercise 1
+
 and : Bool -> Bool -> Bool
 and True  b = b
 and False _ = False
@@ -20,6 +20,7 @@ or True  _ = True
 or False b = b
 
 -- Exercise 2
+
 data UnitOfTime = Second | Minute | Hour | Day | Week
 
 toSeconds : UnitOfTime -> Integer -> Integer
@@ -53,17 +54,25 @@ atomicMass F = 18.9984
 
 data Title = Mr | Mrs | Other String
 
+-- Exercise 1
+
 eqTitle : Title -> Title -> Bool
 eqTitle Mr        Mr        = True
 eqTitle Mrs       Mrs       = True
 eqTitle (Other x) (Other y) = x == y
 eqTitle _         _         = False
 
+-- Exercise 2
+
 isOther : Title -> Bool
 isOther (Other _) = True
 isOther _         = False
 
+-- Exercise 3
+
 data LoginError = UnknownUser String | InvalidPassword | InvalidKey
+
+-- Exercise 4
 
 showError : LoginError -> String
 showError (UnknownUser x) = "Unknown user: " ++ x

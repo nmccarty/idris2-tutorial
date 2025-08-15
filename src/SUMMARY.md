@@ -24,7 +24,7 @@
   - [Enumerations](./Tutorial/DataTypes/Enumerations.md)
   - [Enumeration Exercises](./Tutorial/DataTypes/Exercises1.md)
   - [Sum Types](./Tutorial/DataTypes/SumTypes.md)
-  - [Exercises](./Tutorial/DataTypes/Exercises2.md)
+  - [Sum Type Exercises](./Tutorial/DataTypes/Exercises2.md)
   - [Records](./Tutorial/DataTypes/Records.md)
   - [Exercises](./Tutorial/DataTypes/Exercises3.md)
   - [Generic Data Types](./Tutorial/DataTypes/GenericDataTypes.md)

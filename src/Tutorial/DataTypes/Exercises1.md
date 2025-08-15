@@ -4,6 +4,8 @@
 module Tutorial.DataTypes.Exercises1
 ```
 
+The solutions to these exercises can be found in [`src/Solutions/DataTypes.idr`](../../Solutions/DataTypes.md).
+
 ## Exercise 1
 
 Use pattern matching to implement your own versions of boolean operators `(&&)` and `(||)`, calling them `and` and `or` respectively.
