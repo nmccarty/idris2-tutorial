@@ -15,6 +15,8 @@ This one's best done after migrating to the community project so we can have the
 ** DONE Figure out exercise solutions situation
 Will probably want to either convert the solutions files to markdown with katla or manually, and add them in a an appendex. Will need to go back and insert links/references.
 ** DONE Consistent on summary vs conclusion
+** DONE Admonish
+Get an admonishment extension up and running and edit to use it as appropiate
 ** STRT Clean Up Prose
 Need to:
 + Remove use of first person singular, to reflect the collective ownership
@@ -47,8 +49,6 @@ This keeps it readable as a raw markdown document, but provides easy processing 
 *** TODO Special Handling for exec
 ** TODO Selenized custom themes
 Because I love myself
-** TODO Admonish
-Get an admonishment extension up and running and edit to use it as appropiate
 ** IDEA Standard library types
 When a subchapter reimplements a standard library type, we should maybe call this out and use the standard library type in future subchapters to decrease cross dependencies
 ** IDEA Rename Modules To Chapter/Subchapter number?
@@ -57,6 +57,7 @@ Could also potentially insert automatic linking?
 ** TODO Property based testing
 ** TODO Place modules and visibility primer in the introduction
 This needs to come early in the book so new programmers can make sense of the use of imports to reference statements from the previous chapter.
+** TODO Totality Primer
 * Mdbook features
 ** TODO linkcheck
 ** TODO open-on-gh
