@@ -4,7 +4,7 @@
 module Tutorial.DataTypes.Enumerations
 ```
 
-Enumerations, also known as as a sum type or a [tagged union](https://en.wikipedia.org/wiki/Tagged_union) are one the two basic forms of algebraic data types. Enumerations are data types that can store one of several specified options as their values.
+Enumerations, the most basic form of a more general concept known as sum types or a [tagged unions](https://en.wikipedia.org/wiki/Tagged_union) are one the two basic forms of algebraic data types. Enumerations are data types that can store one of several specified options as their values.
 
 Lets define a basic enumeration over the days of the week as a first example. This very basic form of enumeration may be familiar to you from other languages:
 

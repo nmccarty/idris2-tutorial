@@ -1,17 +1,19 @@
 # Sum Types
 
 ```idris
-module Tutorial.DataTypes.SumTypes
+module Tutorial.DataTypes.SumTypes 
 ```
 
-Assume we'd like to write some web form, where users of our web application can decide how they like to be addressed. We give them a choice between two common predefined forms of address (Mr and Mrs), but also allow them to decide on a customized form. The possible choices can be encapsulated in an Idris data type:
+The simple enumerations we covered in the previous chapter are only the most basic form of the more general *sum types*. A lot of traditional imperative programming languages, if they have enumerations at all, only have the basic form we've already explored, where the only data stored in a value of the enumeration type is the information on which variant the particular value is. Like other functional programming languages and many contemporary imperative languages, Idris goes a step further, allowing you to store additional data of your choosing in each of the variants of your type.
+
+To provide an example, lets assume we'd like to write some web form, where users of our web application can tell us how they would like to be addressed. We'll give them a choice between two common predefined forms of address (Mr and Mrs), but also allow them to input a completely custom, freeform value. We can encode these choices in an Idris data type like so:
 
 ```idris
 public export
 data Title = Mr | Mrs | Other String
 ```
 
-This looks almost like an enumeration type, with the exception that there is a new thing, called a *data constructor*, which accepts a `String` argument (actually, the values in an enumeration are also called (nullary) data constructors). If we inspect the types at the REPL, we learn the following:
+This looks almost like the enumeration types from the previous section, except that there is a new *thing*, called a *data constructor*, which accepts a `String` argument (actually, the values in an enumeration are also called (nullary) data constructors). If we inspect the types at the REPL, we learn the following:
 
 ```repl
 Tutorial.DataTypes> :t Mr
