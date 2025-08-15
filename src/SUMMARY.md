@@ -26,7 +26,7 @@
   - [Sum Types](./Tutorial/DataTypes/SumTypes.md)
   - [Sum Type Exercises](./Tutorial/DataTypes/Exercises2.md)
   - [Records](./Tutorial/DataTypes/Records.md)
-  - [Exercises](./Tutorial/DataTypes/Exercises3.md)
+  - [Record Exercises](./Tutorial/DataTypes/Exercises3.md)
   - [Generic Data Types](./Tutorial/DataTypes/GenericDataTypes.md)
   - [Exercises](./Tutorial/DataTypes/Exercises4.md)
   - [Alternative Syntax for Data Definitions](./Tutorial/DataTypes/AltSyntax.md)

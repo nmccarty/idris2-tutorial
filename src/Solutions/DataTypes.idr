@@ -83,7 +83,8 @@ showError InvalidKey      = "Invalid key"
 --          Records
 --------------------------------------------------------------------------------
 
--- 1
+-- Exercise 1
+
 record TimeSpan where
   constructor MkTimeSpan
   unit  : UnitOfTime
@@ -92,7 +93,8 @@ record TimeSpan where
 timeSpanToSeconds : TimeSpan -> Integer
 timeSpanToSeconds (MkTimeSpan unit value) = toSeconds unit value
 
--- 2
+-- Exercise 2
+
 eqTimeSpan : TimeSpan -> TimeSpan -> Bool
 eqTimeSpan x y = timeSpanToSeconds x == timeSpanToSeconds y
 
@@ -100,7 +102,8 @@ eqTimeSpan x y = timeSpanToSeconds x == timeSpanToSeconds y
 eqTimeSpan' : TimeSpan -> TimeSpan -> Bool
 eqTimeSpan' = (==) `on` timeSpanToSeconds
 
--- 3
+-- Exercise 3
+
 showUnit : UnitOfTime -> String
 showUnit Second = "s"
 showUnit Minute = "min"
@@ -113,7 +116,8 @@ prettyTimeSpan (MkTimeSpan Second v) = show v ++ " s"
 prettyTimeSpan (MkTimeSpan u v)      =
   show v ++ " " ++ showUnit u ++ "(" ++ show (toSeconds u v) ++ " s)"
 
--- 4
+-- Exercise 4
+
 compareUnit : UnitOfTime -> UnitOfTime -> Ordering
 compareUnit = compare `on` (\x => toSeconds x 1)
 
