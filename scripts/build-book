@@ -4,7 +4,7 @@ use File::Temp;
 use Shell::Command;
 use paths;
 
-unit sub MAIN(Bool :$upload);
+unit sub MAIN(Bool :$upload, Bool :$skip-katla?);
 
 my $tempdir = tempdir.IO;
 my $ttc-number = dir('build/ttc').first.basename;
@@ -87,6 +87,17 @@ cp $tempdir.add("book"), "book", :r;
 
 # Invoke katla on an idris source file, mangling the output into a markdown file
 sub katla-html($src, $ttc-src, $out-path) {
+    # Prepare the output location
+    my $output-path = $tempdir.add: $out-path;
+    if !$output-path.parent.d {
+        $output-path.parent.mkdir;
+    }
+    # Short circut if requested
+    if $skip-katla {
+        say 'Skipping katla for input at ', $src;
+        $output-path.spurt($src.IO.slurp);
+        return;
+    }
     # Run katla and collect the output
     # TODO: Detect and handle katla errors
     my $katla = run 'katla', 'html', $src, $ttc-src, :out;
@@ -107,25 +118,28 @@ sub katla-html($src, $ttc-src, $out-path) {
     );
     $output.=subst(/'</div>'$$/,'',:g);
     # Spurt the output to the temporary directory
-    my $output-path = $tempdir.add: $out-path;
-    if !$output-path.parent.d {
-        $output-path.parent.mkdir;
-    }
     $output-path.spurt($output);
 }
 
 # Invoke katla on a markdown source file, streaming its output to the temporary directory
 sub katla-markdown($src, $ttc-src) {
+    # Prepare the output location
+    my $output-path = $tempdir.add: $src;
+    if !$output-path.parent.d {
+        $output-path.parent.mkdir;
+    }
+    # Short circut if requested
+    if $skip-katla {
+        say 'Skipping katla for input at ', $src;
+        $output-path.spurt($src.IO.slurp);
+        return;
+    }
     # Run katla and collect the output
     # TODO: Detect and handle katla errors
     my $katla = run 'katla', 'markdown', $src, $ttc-src, :out;
     my $output = $katla.out.slurp(:close);
     $output = process-katla-output($output);
     # Spurt the output to the temporary directory
-    my $output-path = $tempdir.add: $src;
-    if !$output-path.parent.d {
-        $output-path.parent.mkdir;
-    }
     $output-path.spurt($output);
 }
 
