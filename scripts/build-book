@@ -40,7 +40,7 @@ copy-to-dest "book.toml";
 
 # Katla over the source files, just plain copying them if the ttm doesn't exist
 # Implement special handling for idr files
-for paths("src").race(batch => 1, degree => Kernel.cpu-cores * 16) -> $path {
+paths("src").race(batch => 1).map( -> $path {
     my $rel-path = $path.IO.relative;
     my $ttc-path = $ttc.add($path.IO.relative: "src").extension: "ttm";
     given $path.IO.extension {
@@ -72,7 +72,7 @@ for paths("src").race(batch => 1, degree => Kernel.cpu-cores * 16) -> $path {
             say "Copying ", $rel-path, " verbatim";
         }
     }
-}
+}).sink;
 
 # Build the book
 
