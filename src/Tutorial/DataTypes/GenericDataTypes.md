@@ -6,15 +6,19 @@ module Tutorial.DataTypes.GenericDataTypes
 import Tutorial.DataTypes.Enumerations
 ```
 
-Sometimes, a concept is general enough that we'd like to apply it not only to a single type, but to all kinds of types. For instance, we might not want to define data types for lists of integers, lists of strings, and lists of booleans, as this would lead to a lot of code duplication. Instead, we'd like to have a single generic list type *parameterized* by the type of values it stores. This section explains how to define and use generic types.
+Sometimes, a concept is general enough that we'd like to apply it not just to one type, but to all kinds of types. For instance, it would be highly inconvenient if we had to define a notion of a list over and over again for every type we might want to put in a list, a list of integers and a list of strings may have differently typed contents, but they share the same structure, and repeating that structure would lead to lots of code duplication. Instead we'd like to have a single generic list type *parameterized* by the type of value it stores.
+
+In this section, we will explore the definition and use of generic types.
 
 ## Maybe
 
-Consider the case of parsing a `Weekday` from user input. Surely, such a function should return `Saturday`, if the string input was `"Saturday"`, but what if the input was `"sdfkl332"`? We have several options here. For instance, we could just return a default result (`Sunday` perhaps?). But is this the behavior programmers expect when using our library? Maybe not. To silently continue with a default value in the face of invalid user input is hardly ever the best choice and may lead to a lot of confusion.
+Suppose we want to parse a value of the `Weekday` type, described in the section on enumerations, from user input. Such a parsing function should return `Saturday` if the user provided string was `"Saturday"`, but what should it return if the input were, say, `"sdfkl332"`? We have another of options here, for instance, we could return another "default" value, such as `Sunday`, but we must consider what behavior programmers using our library might expect. However, silently continuing with such a default value in the face of invalid user input is very rarely the best option, and can lead to a lot of confusion.
 
-In an imperative language, our function would probably throw an exception. We could do this in Idris as well (there is function `idris_crash` in the *Prelude* for this), but doing so, we would abandon totality! A high price to pay for such a common thing as a parsing error.
+If we were working in a traditional imperative language, our parsing function would probably throw an exception upon encountering such invalid input. Idris has the option to throw an exception too, through the [`idris_crash`](https://www.idris-lang.org/Idris2/prelude/docs/Builtin.html#Builtin.idris_crash) function in the *Prelude*, but we need to abandon totality to do this, our function would no longer return a value for every possible input. This is a high price to pay for something as commonplace as a parsing error.
 
-In languages like Java, our function might also return some kind of `null` value (leading to the dreaded `NullPointerException`s if not handled properly in client code). Our solution will be similar, but instead of silently returning `null`, we will make the possibility of failure visible in the types! We define a custom data type, which encapsulates the possibility of failure. Defining new data types in Idris is very cheap (in terms of the amount of code needed), therefore this is often the way to go in order to increase type safety. Here's an example how to do this:
+In a language like Java, C#, or C++, our function *might* also return some sort of `null` value (leading to the dreaded `NullPointerException` if not handled properly in the consuming code). Our solution will be conceptually similar, but instead of silently returning a `null`, we will make the possibility of failure visible in the type. We'll define a custom data type, which encapsulates the possibility of failure.
+
+Defining new data types in Idris is very cheap, in terms of the amount of code needed, so this pattern is very often seen as a way of increasing type safety. Here's what such a bespoke type might look like for our use-case, along with the associated parsing function:
 
 ```idris
 data MaybeWeekday = WD Weekday | NoWeekday
@@ -31,9 +35,12 @@ readWeekday "Sunday"    = WD Sunday
 readWeekday _           = NoWeekday
 ```
 
-But assume now, we'd also like to read `Bool` values from user input. We'd now have to write a custom data type `MaybeBool` and so on for all types we'd like to read from `String`, and the conversion of which might fail.
+But what if we'd like also like to read a `Bool` from user input? We'd have to write another custom data type, `MaybeBool`, and so on for all the types we'd like to be able to parse from a `String`.
 
-Idris, like many other programming languages, allows us to generalize this behavior by using *generic data types*. Here's an example:
+Idris, like many other programming languages, allows us to generalize this behavior by using *generic data types*. Here's what the *generic* version of our `MaybeWeekday` might look like:
+
+> [!NOTE]
+> While the prelude calls this type `Maybe`, we are calling it `Option` to avoid conflict. You may recognize the name `Option` from other programming languages, for instance, Rust uses the name `Option` to refer to this concept.
 
 ```idris
 data Option a = Some a | None
@@ -45,18 +52,23 @@ readBool "False"   = Some False
 readBool _         = None
 ```
 
-It is important to go to the REPL and look at the types:
+Let's go to the REPL and take a look at the types to get a feel for what we are working with here:
 
 ```repl
-Tutorial.DataTypes> :t Some
-Tutorial.DataTypes.Some : a -> Option a
-Tutorial.DataTypes> :t None
-Tutorial.DataTypes.None : Option a
-Tutorial.DataTypes> :t Option
-Tutorial.DataTypes.Option : Type -> Type
+Tutorial.DataTypes.GenericDataTypes> :t Some
+Tutorial.DataTypes.GenericDataTypes.Some : a -> Option a
+Tutorial.DataTypes.GenericDataTypes> :t None
+Tutorial.DataTypes.GenericDataTypes.None : Option a
+Tutorial.DataTypes.GenericDataTypes> :t Option
+Tutorial.DataTypes.GenericDataTypes.Option : Type -> Type
 ```
 
-We need to introduce some jargon here. `Option` is what we call a *type constructor*. It is not yet a saturated type: It is a function from `Type` to `Type`. However, `Option Bool` is a type, as is `Option Weekday`. Even `Option (Option Bool)` is a valid type. `Option` is a type constructor *parameterized* over a *parameter* of type `Type`. `Some` and `None` are `Option`s *data constructors*: The functions used to create values of type `Option a` for a type `a`.
+> [!NOTE]
+> `Option` is what we call a *type constructor*, it is not yet a saturated type. It is, instead, a *function* from `Type` to `Type`. Only when we provide it a `Type` argument does it actually become a *type*.
+>
+> We say that `Option` is a type constructor *parameterized* over a *parameter* of type `Type`. While `Option` may not be a type, `Option Bool` is a type, and so is `Option Weekday`. Even `Option (Option Bool)` is a valid type.
+>
+> `Some` and `None` are `Option`'s *data constructors*, they are functions used to create values of type `Option a` for a given type `a`
 
 Let's see some other use cases for `Option`. Below is a safe division operation:
 
