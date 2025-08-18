@@ -163,5 +163,6 @@ sub process-katla-output($orig-output) {
     $output ~~ s:g/'="IdrisType"'/="hljs-type"/;
     $output ~~ s:g/'="IdrisNamespace"'/="hljs-symbol hljs-emphasis"/;
     $output.=subst(/'<code class="IdrisCode">'\s*/, '<code class="IdrisCode">', :g);
+    $output.=subst('&nbsp;', ' ', :g);
     $output
 }
