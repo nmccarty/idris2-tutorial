@@ -62,4 +62,3 @@ This needs to come early in the book so new programmers can make sense of the us
 Particularly in the context of record constructors
 * Mdbook features
 ** TODO linkcheck
-** TODO open-on-gh

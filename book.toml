@@ -9,5 +9,15 @@ create-missing = false
 
 [output.html]
 preferred-dark-theme = "ayu"
+default-theme = "rust"
+git-repository-url = "https://github.com/idris-community/idris2-tutorial"
+
+[output.html.print]
+enable = true
+page-break = true
+
+[output.html.fold]
+enable = true
+level = 0
 
 [preprocessor.alerts]
